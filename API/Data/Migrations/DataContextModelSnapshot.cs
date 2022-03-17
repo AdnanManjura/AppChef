@@ -23,9 +23,6 @@ namespace API.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("EmailAddress")
-                        .HasColumnType("TEXT");
-
                     b.Property<byte[]>("PasswordHash")
                         .HasColumnType("BLOB");
 
