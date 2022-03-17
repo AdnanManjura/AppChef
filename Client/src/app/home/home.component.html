@@ -1,14 +1,14 @@
-<body class="text-center">
-<div>
-    <label>Don't have an account? <label (click)="registerToggle()">Sign up</label>
-    </label>
-    
-</div>
-<div *ngIf="registerMode" class="container">
-    <div class="row justify-content-center">
-        <div class="col-4">
-            <app-register (cancelRegister)="cancelRegisterMode($event)" ></app-register>
+<body class="text-center" *ngIf="(accountService.currentUser$ | async) === null">
+    <div>
+        <label>Don't have an account?
+            <a href="#" (click)="registerToggle()" routerLink="/register">Sign up</a>
+        </label>
+    </div>
+    <div *ngIf="registerMode" class="container">
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
+            </div>
         </div>
     </div>
-</div>
 </body>
