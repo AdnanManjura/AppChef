@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AccountService } from '../_services/account.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,12 +11,13 @@ import { AccountService } from '../_services/account.service';
 export class HomeComponent implements OnInit {
   registerMode = false;
 
-  constructor(public accountService: AccountService) { }
+  constructor(public accountService: AccountService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   registerToggle() {
+    this.router.navigateByUrl("/register");
     this.registerMode = !this.registerMode;
   }
 

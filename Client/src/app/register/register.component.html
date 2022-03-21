@@ -1,5 +1,6 @@
+<br>
 <form #registerForm="ngForm" (ngSubmit)="register()" autocomplete="off" *ngIf="(accountService.currentUser$ | async) === null">
-    <h2 class="text-center text primary">Sign up</h2>
+                <h2 class="text-center text primary">Sign <span style="color:orange">Up</span></h2>
     <hr>
     <div class="form-group">
         <input type="text" class="form-control text-center" name="username" [(ngModel)]="model.username" placeholder="Please insert your username">
