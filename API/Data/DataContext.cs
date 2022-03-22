@@ -8,7 +8,10 @@ namespace API.Data
         public DataContext(DbContextOptions options) : base(options)
         {
         }
-
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<RecipeDetails>().HasNoKey();
+        }
         public DbSet<AppUser> Users { get; set; }
         public DbSet<Category> Category { get; set; }
         public DbSet<Recipe> Recipe { get; set; }

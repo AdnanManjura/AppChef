@@ -10,7 +10,6 @@ namespace API.Entities
         public float Quantity { get; set; }
         public string MesureUnit { get; set; }
         public float Price { get; set; }
-        public List<RecipeDetails> Recipes { get; set;}
 
     }
 }

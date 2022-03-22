@@ -9,9 +9,7 @@ namespace API.Entities
         public int RecipeId { get; set; }
         public string RecipeName { get; set; }
         public byte[] RecipePhoto { get; set; }
-        public List<RecipeDetails> RecipeDetails { get; set;}
-
-        public Category Category { get; set; }
+        public string Description { get; set; }
         public int CategoryId { get; set; }
         
     }

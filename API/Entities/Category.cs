@@ -8,6 +8,5 @@ namespace API.Entities
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
         public byte[] CategoryPhoto { get; set; }
-        public List<Recipe> Recipe { get; set;}
     }
 }
