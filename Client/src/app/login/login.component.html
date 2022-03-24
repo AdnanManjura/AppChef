@@ -2,11 +2,12 @@
 
     <div class="container">
         <main class="form-signin">
-           
-                <h1 class="mt-5">App<span style="color:orange">Chef</span></h1>
-                  
-                <button type="button" class="btn btn-sm btn-secondary" *ngIf="(accountService.currentUser$ | async) as user">
-                    <div class="dropdown" dropdown>
+
+            <h1 class="mt-5">App<span style="color:orange">Chef</span></h1>
+
+            <button type="button" class="btn btn-sm btn-secondary"
+                *ngIf="(accountService.currentUser$ | async) as user">
+                <div class="dropdown" dropdown>
                     <a class="dropdown-toggle text-light" dropdownToggle>Hi, {{user.username | titlecase}}!</a>
                     <div class="dropdown-menu mt-3" *dropdownMenu>
                         <a class="dropdown-item">My profile</a>

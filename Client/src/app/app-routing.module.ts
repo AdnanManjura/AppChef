@@ -6,8 +6,9 @@ import { RecipesComponent } from './categories/recipes/recipes.component';
 import { HomeComponent } from './home/home.component';
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
-import { CategoriesComponent } from './categories/categories.component';
 import { AuthGuard } from './_guards/auth.guard';
+import { MemberListComponent } from './members/member-list/member-list.component';
+import { MemberDetailComponent } from './members/member-detail/member-detail.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -16,7 +17,9 @@ const routes: Routes = [
     runGuardsAndResolvers: 'always',
     canActivate: [AuthGuard],
     children: [
-      {path: 'categories', component: CategoriesComponent, canActivate: [AuthGuard]},
+      {path: 'members', component: MemberListComponent, canActivate: [AuthGuard]},
+      {path: 'members/:username', component: MemberDetailComponent},
+      {path: 'categories', component: CategoryListComponent, canActivate: [AuthGuard]},
       {path: 'categories/:id', component: CategoryDetailComponent},
       {path: 'categories/recipies', component: RecipesComponent},
       {path: 'lists', component: ListsComponent},

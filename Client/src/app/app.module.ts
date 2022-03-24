@@ -16,6 +16,10 @@ import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { RecipesComponent } from './categories/recipes/recipes.component';
 import { ToastrModule } from 'ngx-toastr';
+import { MemberListComponent } from './members/member-list/member-list.component';
+import { MemberCardComponent } from './members/member-card/member-card.component';
+import { MemberDetailComponent } from './members/member-detail/member-detail.component';
+import { CategoryCardComponent } from './categories/category-card/category-card.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,11 @@ import { ToastrModule } from 'ngx-toastr';
     CategoryDetailComponent,
     ListsComponent,
     MessagesComponent,
-    RecipesComponent
+    RecipesComponent,
+    MemberListComponent,
+    MemberCardComponent,
+    MemberDetailComponent,
+    CategoryCardComponent
   ],
   imports: [
     BrowserModule,

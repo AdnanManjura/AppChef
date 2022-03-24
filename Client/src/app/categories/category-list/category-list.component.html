@@ -1,1 +1,5 @@
-<p>category-list works!</p>
+<div class="row">
+    <div *ngFor="let category of categories" class="col-2">
+        <app-category-card [category]="category"></app-category-card>
+    </div>
+</div>
