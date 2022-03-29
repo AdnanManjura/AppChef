@@ -1,25 +1,29 @@
 <body class="text-center">
-
     <div class="container">
         <main class="form-signin">
-
-            <h1 class="mt-5">App<span style="color:orange">Chef</span></h1>
-
-            <button type="button" class="btn btn-sm btn-secondary"
-                *ngIf="(accountService.currentUser$ | async) as user">
-                <div class="dropdown" dropdown>
-                    <a class="dropdown-toggle text-light" dropdownToggle>Hi, {{user.username | titlecase}}!</a>
-                    <div class="dropdown-menu mt-3" *dropdownMenu>
-                        <a class="dropdown-item">My profile</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item">Settings</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" (click)="logout()" routerLink="/">Logout</a>
+            <div class="mmenu">
+                <button type="button" class="btn btn-sm btn-secondary"
+                    *ngIf="(accountService.currentUser$ | async) as user">
+                    <div class="dropdown" dropdown>
+                        <a class="dropdown-toggle text-light" dropdownToggle>Hi, {{user.username | titlecase}}!</a>
+                        <div class="dropdown-menu mt-3" *dropdownMenu>
+                            <a class="dropdown-item">My profile</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item">Settings</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" (click)="logout()" routerLink="/">Logout</a>
+                        </div>
                     </div>
-                </div>
-            </button>
-
+                </button>
+            </div>
+            <h1 class="mt-5">App<span style="color:orange">Chef</span></h1>
             <br>
+
+            <div *ngIf="(accountService.currentUser$ | async) as user">
+                <button type="button" routerLink="/members" class="btn btn-info">Members</button>
+                <button type="button" routerLink="/categories" class="btn btn-info">Categories</button>
+                <button type="button" routerLink="/recipes" class="btn btn-info">Recipes</button>
+            </div>
             <form *ngIf="(accountService.currentUser$ | async) === null" #loginForm="ngForm" (ngSubmit)="login()"
                 autocomplete="off">
                 <div class="container">
@@ -40,8 +44,6 @@
                 <button class="btn btn-outline-primary" type="submit">LOGIN</button>
                 <br>
                 <br>
-
-
             </form>
         </main>
     </div>

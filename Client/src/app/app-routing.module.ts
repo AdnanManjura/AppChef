@@ -9,6 +9,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { MemberListComponent } from './members/member-list/member-list.component';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
+import { IngredientsComponent } from './categories/ingredients/ingredients.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -18,10 +19,11 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {path: 'members', component: MemberListComponent, canActivate: [AuthGuard]},
-      {path: 'members/:username', component: MemberDetailComponent},
+      {path: 'members/:id', component: MemberDetailComponent},
       {path: 'categories', component: CategoryListComponent, canActivate: [AuthGuard]},
       {path: 'categories/:id', component: CategoryDetailComponent},
-      {path: 'categories/recipies', component: RecipesComponent},
+      {path: 'categories/:id/ingredients', component: IngredientsComponent},
+      {path: 'recipes', component: RecipesComponent},
       {path: 'lists', component: ListsComponent},
       {path: 'messages', component: MessagesComponent},
     ]

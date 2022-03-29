@@ -1,1 +1,6 @@
-<p>recipes works!</p>
+<div class="cont">
+    <h4 *ngIf="recipe">{{recipe.recipeName}}</h4>
+    <h6 *ngIf="recipe">Best {{recipe.recipeName.toLowerCase()}} in the world!</h6>
+    <button class="btn btn-warning" *ngIf="category" routerLink="/categories/{{category.categoryId}}/ingredients">How to
+        prepare</button>
+</div>

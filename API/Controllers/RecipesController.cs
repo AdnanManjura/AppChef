@@ -10,23 +10,23 @@ using Microsoft.EntityFrameworkCore;
 namespace API.Controllers
 {
     
-    public class CategoriesController : BaseApiController
+    public class RecipesController : BaseApiController
     {
         private readonly DataContext _context;
 
-        public CategoriesController(DataContext context)
+        public RecipesController(DataContext context)
         {
             _context = context;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Category>>> GetCategories(){
-            return await _context.Category.ToListAsync();
+        public async Task<ActionResult<IEnumerable<Recipe>>> GetRecipes(){
+            return await _context.Recipe.ToListAsync();
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Category>> GetCategory(int id){
-            return await _context.Category.FindAsync(id);
+        public async Task<ActionResult<Recipe>> GetRecipe(int id){
+            return await _context.Recipe.FindAsync(id);
         }
     }
 }

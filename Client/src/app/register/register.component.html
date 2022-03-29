@@ -1,5 +1,4 @@
-<br>
-<form #registerForm="ngForm" (ngSubmit)="register()" autocomplete="off" *ngIf="(accountService.currentUser$ | async) === null">
+<form *ngIf="(accountService.currentUser$ | async) === null" #registerForm="ngForm" (ngSubmit)="register()" autocomplete="off" >
                 <h2 class="text-center text primary">Sign <span style="color:orange">Up</span></h2>
     <hr>
     <div class="form-group">
@@ -21,5 +20,8 @@
     <div class="form-group text-center">
         <button class="btn btn-success mr-2" type="submit">Register</button>
         <button class="btn btn-outline-success mr-2" (click)="cancel()" type="button" routerLink="/">Cancel</button>
+    <br>
+        <h2 class="text-center text primary">App<span style="color:orange">Chef</span></h2>
+
     </div>
 </form>

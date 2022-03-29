@@ -1,0 +1,59 @@
+.recipN {
+    border-style: solid;
+    width: 49%;
+}
+.desc{
+    border-style: solid;
+    width: 49%;
+    border-width: thin;
+    height: 220px; 
+}
+.descN{
+    margin-top: 15px;
+    margin-bottom: 1px;
+}
+.ingI{
+    width: 49%;
+    float: right;
+}
+.ingN{
+    border-style: solid;
+    width: 54%;
+    margin-bottom: 20px;
+    border-width: thin;
+}
+.partPrice{
+    border-style: solid;
+    width: 12%;
+    margin-bottom: 20px;
+    border-width: thin;
+    float: right;
+}
+.mUnit{
+    border-style: solid;
+    width: 12%;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    border-width: thin;
+    float: right;
+}
+.gWeight{
+    border-style: solid;
+    width: 12%;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    border-width: thin;
+    float: right;
+}
+.totP{
+    border-style: solid;
+    width: 86%;
+    margin-bottom: 20px;
+    border-width: thin;
+}
+.price{
+    border-style: solid;
+    width: 12%;
+    margin-bottom: 20px;
+    float: right;
+}

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +20,9 @@ import { MemberListComponent } from './members/member-list/member-list.component
 import { MemberCardComponent } from './members/member-card/member-card.component';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
 import { CategoryCardComponent } from './categories/category-card/category-card.component';
+import { JwtInterceptor } from './_interceptors/jwt.interceptor';
+import { IngredientsComponent } from './categories/ingredients/ingredients.component';
+import { RecipeCardComponent } from './categories/recipes/recipe-card/recipe-card.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,9 @@ import { CategoryCardComponent } from './categories/category-card/category-card.
     MemberListComponent,
     MemberCardComponent,
     MemberDetailComponent,
-    CategoryCardComponent
+    CategoryCardComponent,
+    IngredientsComponent,
+    RecipeCardComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +53,9 @@ import { CategoryCardComponent } from './categories/category-card/category-card.
       positionClass: 'toast-bottom-right'
     })
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
