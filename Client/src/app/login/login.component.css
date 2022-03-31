@@ -4,3 +4,13 @@
 .mmenu{
     float: right;
 }
+.mmenu2{
+    float: left;
+}
+.mainTitle{
+    float: center;
+}
+
+.button1{
+    background-color: #f44336;
+}

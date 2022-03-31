@@ -12,8 +12,6 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { CategoryListComponent } from './categories/category-list/category-list.component';
 import { CategoryDetailComponent } from './categories/category-detail/category-detail.component';
-import { ListsComponent } from './lists/lists.component';
-import { MessagesComponent } from './messages/messages.component';
 import { RecipesComponent } from './categories/recipes/recipes.component';
 import { ToastrModule } from 'ngx-toastr';
 import { MemberListComponent } from './members/member-list/member-list.component';
@@ -23,6 +21,7 @@ import { CategoryCardComponent } from './categories/category-card/category-card.
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { IngredientsComponent } from './categories/ingredients/ingredients.component';
 import { RecipeCardComponent } from './categories/recipes/recipe-card/recipe-card.component';
+import { RecipeListComponent } from './categories/recipes/recipe-list/recipe-list.component';
 
 @NgModule({
   declarations: [
@@ -32,15 +31,14 @@ import { RecipeCardComponent } from './categories/recipes/recipe-card/recipe-car
     RegisterComponent,
     CategoryListComponent,
     CategoryDetailComponent,
-    ListsComponent,
-    MessagesComponent,
     RecipesComponent,
     MemberListComponent,
     MemberCardComponent,
     MemberDetailComponent,
     CategoryCardComponent,
     IngredientsComponent,
-    RecipeCardComponent
+    RecipeCardComponent,
+    RecipeListComponent
   ],
   imports: [
     BrowserModule,

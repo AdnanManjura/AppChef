@@ -28,5 +28,10 @@ namespace API.Controllers
         public async Task<ActionResult<Recipe>> GetRecipe(int id){
             return await _context.Recipe.FindAsync(id);
         }
+        [HttpGet]
+        [Route ("getrecipebycategory/{categoryId}")]
+        public async Task<List<Recipe>> GetRecipeByCategory(int categoryId) {
+              return await _context.Recipe.Where(u => u.CategoryId == categoryId).ToListAsync();
+        }
     }
 }

@@ -11,24 +11,23 @@ import { RecipesService } from 'src/app/_services/recipes.service';
   styleUrls: ['./recipes.component.css']
 })
 export class RecipesComponent implements OnInit {
-recipe: Recipe;
-category: Category;
+  recipes: Recipe[];
+  category: Category;
 
-constructor(private recipeService: RecipesService, private route: ActivatedRoute, private categoryService: CategoriesService) { }
+  constructor(private recipeService: RecipesService, private route: ActivatedRoute, private categoryService: CategoriesService) { }
 
-ngOnInit(): void {
-  this.loadRecipe();
-  this.loadCategory();
-}
-
-loadRecipe() {
-  this.recipeService.getRecipe(this.route.snapshot.paramMap.get('id') as unknown as number).subscribe(recipe => {
-    this.recipe = recipe;
-  })
-}
-loadCategory() {
-  this.categoryService.getCategory(this.route.snapshot.paramMap.get('id') as unknown as number).subscribe(category => {
-    this.category = category;
-  })
-}
+  ngOnInit(): void {
+    this.loadRecipe();
+    this.loadCategory();
+  }
+  loadRecipe() {
+    this.recipeService.getRecipesByCategory(this.route.snapshot.paramMap.get('id') as unknown as number).subscribe(recipe => {
+      this.recipes = recipe;
+    })
+  }
+  loadCategory() {
+    this.categoryService.getCategory(this.route.snapshot.paramMap.get('id') as unknown as number).subscribe(category => {
+      this.category = category;
+    })
+  }
 }

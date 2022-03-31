@@ -1,5 +1,21 @@
-<div class="row">
+<div style="background-color:bisque; overflow:scroll;overflow-x:hidden;overflow-y:scroll;">
+    <div style="height:500px;">
+        <div class="row">
+            <h3>Latest categories in our app</h3>
+            <div *ngFor="let category of categories" class="col-2">
+                <app-category-card [category]="category"></app-category-card>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="row">
+    <h3>Latest categories in our app</h3>
     <div *ngFor="let category of categories" class="col-2">
         <app-category-card [category]="category"></app-category-card>
     </div>
+</div> -->
+<br>
+<div style="text-align:center">
+    <button class="btn btn-primary">...</button>
 </div>

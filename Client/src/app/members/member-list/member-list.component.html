@@ -1,5 +1,12 @@
-<div class="row">
-    <div *ngFor="let member of members" class="col-2">
-        <app-member-card [member]="member"></app-member-card>
+<h3>Our members</h3>
+<div style="background-color:bisque; overflow:scroll;overflow-x:hidden;overflow-y:scroll;">
+    <div style="height:400px;">
+        <div class="row">
+            <div *ngFor="let member of members" class="col-2">
+                <app-member-card [member]="member"></app-member-card>
+            </div>
+        </div>
     </div>
 </div>
+<br>
+<button class="bB btn btn-primary" onclick="history.back()">Back</button>

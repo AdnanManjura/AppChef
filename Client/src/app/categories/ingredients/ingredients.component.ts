@@ -21,12 +21,12 @@ export class IngredientsComponent implements OnInit {
     this.loadCategory();
   }
   loadRecipe() {
-    this.recipeService.getRecipe(this.route.snapshot.paramMap.get('id') as unknown as number).subscribe(recipe => {
+    this.recipeService.getRecipe(this.route.snapshot.paramMap.get('recipeId') as unknown as number).subscribe(recipe => {
       this.recipe = recipe;
     })
   }
   loadCategory() {
-    this.categoryService.getCategory(this.route.snapshot.paramMap.get('id') as unknown as number).subscribe(category => {
+    this.categoryService.getCategory(this.route.snapshot.paramMap.get('categoryId') as unknown as number).subscribe(category => {
       this.category = category;
     })
   }

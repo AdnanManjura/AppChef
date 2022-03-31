@@ -1,6 +1,22 @@
-<div class="cont">
-    <h4 *ngIf="recipe">{{recipe.recipeName}}</h4>
-    <h6 *ngIf="recipe">Best {{recipe.recipeName.toLowerCase()}} in the world!</h6>
-    <button class="btn btn-warning" *ngIf="category" routerLink="/categories/{{category.categoryId}}/ingredients">How to
-        prepare</button>
+<div>
+    <form>
+        <label for="sort">Sort by: </label>
+        <select name="tSort" id="sorts">
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+        </select>
+        <button class="btn btn-outline-primary" type="submit">Submit</button>
+    </form>
+    <br>
+    <div style="background-color:bisque; overflow:scroll;overflow-x:hidden;overflow-y:scroll;">
+        <div style="height:200px;">
+            <div *ngFor="let recipe of recipes" class="col-2">
+                <app-recipe-card [recipe]="recipe"></app-recipe-card>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div style="text-align:center">
+    <button class="btn btn-primary">...</button>
 </div>
