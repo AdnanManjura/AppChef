@@ -1,7 +1,7 @@
 import { Photo } from './photo';
 
 export interface Category {
-    categoryId: number;
+    id: number;
     categoryName: string;
     categoryPhoto: string;
     photos: Photo[];

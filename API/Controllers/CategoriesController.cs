@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using API.Data;
 using API.Entities;
+using API.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,10 +14,12 @@ namespace API.Controllers
     public class CategoriesController : BaseApiController
     {
         private readonly DataContext _context;
+        private readonly ICategoryService _categoryService;
 
-        public CategoriesController(DataContext context)
+        public CategoriesController(DataContext context/*, ICategoryService categoryService*/)
         {
             _context = context;
+//            _categoryService = categoryService;
         }
 
         [HttpGet]
@@ -24,9 +27,9 @@ namespace API.Controllers
             return await _context.Category.ToListAsync();
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Category>> GetCategory(int id){
-            return await _context.Category.FindAsync(id);
+        [HttpGet("{CategoryId}")]
+        public async Task<ActionResult<Category>> GetCategory(int categoryId){
+           return await _context.Category.FindAsync(categoryId);
         }
     }
 }

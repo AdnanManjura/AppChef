@@ -20,14 +20,17 @@ export class RecipesComponent implements OnInit {
     this.loadRecipe();
     this.loadCategory();
   }
-  loadRecipe() {
-    this.recipeService.getRecipesByCategory(this.route.snapshot.paramMap.get('id') as unknown as number).subscribe(recipe => {
-      this.recipes = recipe;
+  
+  loadCategory() {
+    let id = this.route.snapshot.paramMap.get('categoryId') as unknown as number;
+    this.categoryService.getCategory(id).subscribe(category => {
+      this.category = category;
     })
   }
-  loadCategory() {
-    this.categoryService.getCategory(this.route.snapshot.paramMap.get('id') as unknown as number).subscribe(category => {
-      this.category = category;
+  loadRecipe() {
+    let id = this.route.snapshot.paramMap.get('categoryId') as unknown as number;
+    this.recipeService.getRecipesByCategory(id).subscribe(recipe => {
+      this.recipes = recipe;
     })
   }
 }

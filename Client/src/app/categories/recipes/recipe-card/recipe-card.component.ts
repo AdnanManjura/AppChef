@@ -23,13 +23,13 @@ recipes: any;
   }
   
   loadCategory(){
-    this.categoryService.getCategory(this.route.snapshot.paramMap.get('id') as unknown as number).subscribe(category=>{
+    this.categoryService.getCategory(this.route.snapshot.paramMap.get('categoryId') as unknown as number).subscribe(category=>{
       this.category=category;
     })
   }
 
   loadRecipes() {
-    let id = this.route.snapshot.paramMap.get('id') as unknown as number;
+    let id = this.route.snapshot.paramMap.get('categoryId') as unknown as number;
     this.recipeService.getRecipesByCategory(id).subscribe(recipes => {
       this.recipes = recipes;
     })

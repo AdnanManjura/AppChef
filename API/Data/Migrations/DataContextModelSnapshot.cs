@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace API.Data.Migrations
+namespace API.Migrations
 {
     [DbContext(typeof(DataContext))]
     partial class DataContextModelSnapshot : ModelSnapshot
@@ -39,7 +39,7 @@ namespace API.Data.Migrations
 
             modelBuilder.Entity("API.Entities.Category", b =>
                 {
-                    b.Property<int>("CategoryId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -49,37 +49,37 @@ namespace API.Data.Migrations
                     b.Property<byte[]>("CategoryPhoto")
                         .HasColumnType("BLOB");
 
-                    b.HasKey("CategoryId");
+                    b.HasKey("Id");
 
                     b.ToTable("Category");
                 });
 
-            modelBuilder.Entity("API.Entities.Ingredients", b =>
+            modelBuilder.Entity("API.Entities.Ingredient", b =>
                 {
-                    b.Property<int>("IngredientsId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("IngredientsName")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("MesureUnit")
-                        .HasColumnType("TEXT");
-
                     b.Property<float>("Price")
                         .HasColumnType("REAL");
 
-                    b.Property<float>("Quantity")
+                    b.Property<int>("PurchaseMesureUnit")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<float>("PurchaseQuantity")
                         .HasColumnType("REAL");
 
-                    b.HasKey("IngredientsId");
+                    b.HasKey("Id");
 
                     b.ToTable("Ingredients");
                 });
 
             modelBuilder.Entity("API.Entities.Recipe", b =>
                 {
-                    b.Property<int>("RecipeId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -95,7 +95,9 @@ namespace API.Data.Migrations
                     b.Property<byte[]>("RecipePhoto")
                         .HasColumnType("BLOB");
 
-                    b.HasKey("RecipeId");
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("Recipe");
                 });
@@ -105,13 +107,65 @@ namespace API.Data.Migrations
                     b.Property<int>("IngredientsId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<float>("Quantity")
-                        .HasColumnType("REAL");
-
                     b.Property<int>("RecipeId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("MeasureUnit")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<float>("Quantity")
+                        .HasColumnType("REAL");
+
+                    b.HasKey("IngredientsId", "RecipeId");
+
+                    b.HasIndex("RecipeId");
+
                     b.ToTable("RecipeDetails");
+                });
+
+            modelBuilder.Entity("API.Entities.Recipe", b =>
+                {
+                    b.HasOne("API.Entities.Category", "Category")
+                        .WithMany("Recipes")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("API.Entities.RecipeDetails", b =>
+                {
+                    b.HasOne("API.Entities.Ingredient", "Ingredient")
+                        .WithMany("RecipeDetailsList")
+                        .HasForeignKey("IngredientsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("API.Entities.Recipe", "Recipe")
+                        .WithMany("RecipeDetailsList")
+                        .HasForeignKey("RecipeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Ingredient");
+
+                    b.Navigation("Recipe");
+                });
+
+            modelBuilder.Entity("API.Entities.Category", b =>
+                {
+                    b.Navigation("Recipes");
+                });
+
+            modelBuilder.Entity("API.Entities.Ingredient", b =>
+                {
+                    b.Navigation("RecipeDetailsList");
+                });
+
+            modelBuilder.Entity("API.Entities.Recipe", b =>
+                {
+                    b.Navigation("RecipeDetailsList");
                 });
 #pragma warning restore 612, 618
         }

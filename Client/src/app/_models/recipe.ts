@@ -2,7 +2,7 @@ import { Category } from './category';
 import { Photo } from './photo';
 
 export interface Recipe {
-    recipeId: number;
+    id: number;
     recipeName: string;
     recipePhoto: string;
     recipeDecsription: string;

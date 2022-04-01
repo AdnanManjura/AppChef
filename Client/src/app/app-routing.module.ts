@@ -18,10 +18,10 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {path: 'members', component: MemberListComponent, canActivate: [AuthGuard]},
-      {path: 'members/:id', component: MemberDetailComponent},
+      {path: 'members/:memberId', component: MemberDetailComponent},
       {path: 'categories', component: CategoryListComponent},
-      {path: 'recipes/GetRecipeByCategory/:id', component: CategoryDetailComponent},
-      {path: 'recipes/recipebycategory/:categoryId/:recipeId', component: IngredientsComponent},
+      {path: 'categories/:categoryId', component: CategoryDetailComponent},
+      {path: 'categories/:categoryId/:recipeId', component: IngredientsComponent},
       {path: 'recipes', component: RecipeListComponent},
     ]
   },  

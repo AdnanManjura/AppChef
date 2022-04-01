@@ -34,10 +34,11 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAplicationServices(_config);
+            services.AddApplicationServices(_config);
             services.AddControllers();
             services.AddCors();
             services.AddIdentityServices(_config);
+            services.AddSwaggerGen();
             
         }
 
@@ -62,6 +63,12 @@ namespace API
             {
                 endpoints.MapControllers();
             });
-        }
+
+        //     app.UseSwagger();
+        //     app.UseSwaggerUI(c =>
+        //     {
+        //         c.SwaggerEndPoint("/swagger/v1/swagger.json", "My API V2");
+        //     });
+         }
     }
 }
