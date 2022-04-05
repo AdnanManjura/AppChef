@@ -2,53 +2,8 @@
     <div class="container">
         <h1 *ngIf="category">{{category.categoryName}}</h1>
         <div class="ingI">
-            <div class="partPrice">
-                <p>Pp</p>
-            </div>
-            <div class="mUnit">
-                <p>Mu</p>
-            </div>
-            <div class="gWeight">
-                <p>Gg</p>
-            </div>
-            <div class="ingN">
-                <p>Ingredients name</p>
-            </div>
-            <div class="partPrice">
-                <p>Pp</p>
-            </div>
-            <div class="mUnit">
-                <p>Mu</p>
-            </div>
-            <div class="gWeight">
-                <p>Gg</p>
-            </div>
-            <div class="ingN">
-                <p>Ingredients name</p>
-            </div>
-            <div class="partPrice">
-                <p>Pp</p>
-            </div>
-            <div class="mUnit">
-                <p>Mu</p>
-            </div>
-            <div class="gWeight">
-                <p>Gg</p>
-            </div>
-            <div class="ingN">
-                <p>Ingredients name</p>
-            </div>
-            <div class="partPrice">
-                <p>Pp</p>
-            </div>
-            <div class="mUnit">
-                <p>Mu</p>
-            </div>
-            <div class="gWeight">
-                <p>Gg</p>
-            </div>
-            <div class="ingN">
-                <p>Ingredients name</p>
+            <div class="ing" *ngFor="let recipeDetail of recipeDetails">
+                <h4 *ngIf="recipeDetail">{{recipeDetail.ingredientsId}}</h4>
             </div>
             <div class="price">
                 <p style="text-align:center;">Price: </p>
@@ -64,9 +19,7 @@
         </div>
         <p class="descN">Description</p>
         <div class="desc">
-            <p>Test Test Test Test Test Test Test TestTest Test Test Test Test Test Test TestTest Test Test Test Test
-                Test
-                Test Test</p>
+            <div class="descText" *ngIf="recipe">{{recipe.description}}</div>
         </div>
     </div>
 </div>

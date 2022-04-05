@@ -18,7 +18,7 @@ constructor(private route: ActivatedRoute, private recipeService: RecipesService
 recipes: any;
 
   ngOnInit(): void {
-    this.loadRecipes();
+    this.loadRecipe();
     this.loadCategory();
   }
   
@@ -28,10 +28,10 @@ recipes: any;
     })
   }
 
-  loadRecipes() {
+  loadRecipe() {
     let id = this.route.snapshot.paramMap.get('categoryId') as unknown as number;
-    this.recipeService.getRecipesByCategory(id).subscribe(recipes => {
-      this.recipes = recipes;
+    this.recipeService.getRecipesByCategory(id).subscribe(recipe => {
+      this.recipes = recipe;
     })
   }
 

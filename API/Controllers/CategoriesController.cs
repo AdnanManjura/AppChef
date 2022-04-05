@@ -10,26 +10,32 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-    
+
     public class CategoriesController : BaseApiController
     {
         private readonly DataContext _context;
         private readonly ICategoryService _categoryService;
-
-        public CategoriesController(DataContext context/*, ICategoryService categoryService*/)
+        public CategoriesController(DataContext context, ICategoryService categoryService)
         {
             _context = context;
-//            _categoryService = categoryService;
+            _categoryService = categoryService;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Category>>> GetCategories(){
-            return await _context.Category.ToListAsync();
+        [AllowAnonymous]
+        public async Task<ActionResult<IEnumerable<Category>>> GetCategories()
+        {
+            var categories = await _categoryService.GetCategories();
+            return Ok(categories);
         }
 
         [HttpGet("{CategoryId}")]
-        public async Task<ActionResult<Category>> GetCategory(int categoryId){
-           return await _context.Category.FindAsync(categoryId);
+        public async Task<ActionResult<Category>> GetCategory(int categoryId)
+        {
+            if(categoryId < 1)
+                return BadRequest();
+
+            return await _context.Category.FindAsync(categoryId);
         }
     }
 }
