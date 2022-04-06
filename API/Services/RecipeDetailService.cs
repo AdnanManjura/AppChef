@@ -15,10 +15,14 @@ namespace API.Services
             _context = context;
         }
 
-         public async Task<ActionResult<IEnumerable<RecipeDetails>>> GetRecipeDetails()
-         {
-             return await _context.RecipeDetails.ToListAsync();
-         }
-        
+        public async Task<ActionResult<IEnumerable<RecipeDetails>>> GetRecipeDetails()
+        {
+            return await _context.RecipeDetails.Include(x => x.Ingredient).ToListAsync();
+        }
+
+        public async Task<IEnumerable<RecipeDetails>> GetIngredientsByRecipe(int recipeId)
+        {
+            return await _context.RecipeDetails.Include(x => x.Ingredient).Where(u => u.RecipeId == recipeId).ToListAsync();
+        }
     }
 }

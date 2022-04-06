@@ -13,11 +13,9 @@ namespace API.Controllers
 
     public class CategoriesController : BaseApiController
     {
-        private readonly DataContext _context;
         private readonly ICategoryService _categoryService;
-        public CategoriesController(DataContext context, ICategoryService categoryService)
+        public CategoriesController(ICategoryService categoryService)
         {
-            _context = context;
             _categoryService = categoryService;
         }
 
@@ -35,7 +33,7 @@ namespace API.Controllers
             if(categoryId < 1)
                 return BadRequest();
 
-            return await _context.Category.FindAsync(categoryId);
+            return await _categoryService.GetCategory(categoryId);
         }
     }
 }

@@ -1,26 +1,49 @@
-<div class="mDiv">
-    <div class="container">
-        <h1 *ngIf="category">{{category.categoryName}}</h1>
-        <div class="ingI">
-            <div class="ing" *ngFor="let recipeDetail of recipeDetails">
-                <h4 *ngIf="recipeDetail">{{recipeDetail.ingredientsId}}</h4>
-            </div>
-            <div class="price">
-                <p style="text-align:center;">Price: </p>
-            </div>
-            <div class="totP">
-                <p style="text-align:right; margin-right: 5px;">Total price: </p>
-            </div>
+<div class="container">
+    <h1 *ngIf="category">{{category.categoryName}}</h1>
+    <div class="box">
+        <div class="recipN" *ngIf="recipe">{{recipe.recipeName}}
         </div>
-        <div class="box">
-            <div class="recipN" *ngIf="recipe">{{recipe.recipeName}}
-            </div>
 
+    </div>
+    <div class="ingI">
+        <table>
+            <div class="ing" *ngFor="let recipeDetail of recipeDetails">
+                <tr>
+                    <th>Ingredient</th>
+                    <th>Measure unit</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+                <tr>
+                    <td>
+                        <h4 *ngIf="recipeDetail">{{recipeDetail.ingredient.ingredientsName}}</h4>
+                    </td>
+                    <td>
+                        <h4 *ngIf="recipeDetail">{{recipeDetail.measureUnit}}</h4>
+                    </td>
+                    <td>
+                        <h4 *ngIf="recipeDetail">{{recipeDetail.quantity}}</h4>
+                    </td>
+                    <td>
+                        <h4 *ngIf="recipeDetail">{{recipeDetail.ingredient.price*recipeDetail.quantity}}</h4>
+                    </td>
+                </tr>
+
+            </div>
+        </table>
+        <p>-------------------</p>
+
+
+        <div class="price">
+            <p style="text-align:center;">Price: </p>
         </div>
-        <p class="descN">Description</p>
-        <div class="desc">
-            <div class="descText" *ngIf="recipe">{{recipe.description}}</div>
+        <div class="totP">
+            <p style="text-align:right; margin-right: 5px;">Total price: </p>
         </div>
+        <button class="bB btn btn-primary" onclick="history.back()">Back</button>
+    </div>
+    <p class="descN">Description</p>
+    <div class="desc">
+        <div class="descText" *ngIf="recipe">{{recipe.description}}</div>
     </div>
 </div>
-<button class="bB btn btn-primary" onclick="history.back()">Back</button>

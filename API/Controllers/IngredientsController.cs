@@ -12,11 +12,9 @@ namespace API.Controllers
 {
     public class IngredientsController : BaseApiController
     {
-        private readonly DataContext _context;
         private readonly IIngredientService _ingredientService;
-        public IngredientsController(DataContext context, IIngredientService ingredientService)
+        public IngredientsController(IIngredientService ingredientService)
         {
-            _context = context;
             _ingredientService = ingredientService;
         }
         [HttpGet]
@@ -31,7 +29,7 @@ namespace API.Controllers
             if (id < 1)
                 return BadRequest();
 
-            return await _context.Ingredient.FindAsync(id);
+            return await _ingredientService.GetIngredient(id);
         }
     }
 }

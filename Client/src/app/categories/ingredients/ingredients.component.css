@@ -16,35 +16,6 @@
     width: 49%;
     float: right;
 }
-.ingN{
-    border-style: solid;
-    width: 54%;
-    margin-bottom: 20px;
-    border-width: thin;
-}
-.partPrice{
-    border-style: solid;
-    width: 12%;
-    margin-bottom: 20px;
-    border-width: thin;
-    float: right;
-}
-.mUnit{
-    border-style: solid;
-    width: 12%;
-    margin-bottom: 20px;
-    margin-right: 20px;
-    border-width: thin;
-    float: right;
-}
-.gWeight{
-    border-style: solid;
-    width: 12%;
-    margin-bottom: 20px;
-    margin-right: 20px;
-    border-width: thin;
-    float: right;
-}
 .totP{
     border-style: solid;
     width: 86%;
@@ -59,4 +30,13 @@
 }
 .bB{
     float: right;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+  }
+table{
+    border: 1px solid;
+    margin-bottom: 10px;
 }

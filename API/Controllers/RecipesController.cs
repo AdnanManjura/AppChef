@@ -13,11 +13,9 @@ namespace API.Controllers
     
     public class RecipesController : BaseApiController
     {
-        private readonly DataContext _context;
         private readonly IRecipeService _recipeService;
-        public RecipesController(DataContext context, IRecipeService recipeService)
+        public RecipesController(IRecipeService recipeService)
         {
-            _context = context;
             _recipeService = recipeService;
         }
 
@@ -34,13 +32,13 @@ namespace API.Controllers
             if(recipeId < 1)
                 return BadRequest();
 
-            return await _context.Recipe.FindAsync(recipeId);
+            return await _recipeService.GetRecipe(recipeId);
         }
 
         [HttpGet]
         [Route ("getrecipebycategory/{categoryId}")]
         public async Task<IEnumerable<Recipe>> GetRecipeByCategory(int categoryId) {
-              return await _context.Recipe.Where(u => u.CategoryId == categoryId).ToListAsync();
+              return await _recipeService.GetRecipeByCategory(categoryId);
         }
     }
 }

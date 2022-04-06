@@ -1,6 +1,7 @@
 using API.Data;
 using API.Entities;
 using API.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Services
@@ -16,6 +17,11 @@ namespace API.Services
         public async Task<IEnumerable<Category>> GetCategories()
         {
             return await _context.Category.ToListAsync();
+        }
+
+        public async Task<ActionResult<Category>> GetCategory(int categoryId)
+        {
+            return await _context.Category.FindAsync(categoryId);
         }
     }
 }

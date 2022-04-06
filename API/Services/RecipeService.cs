@@ -1,6 +1,7 @@
 using API.Data;
 using API.Entities;
 using API.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Services
@@ -13,9 +14,19 @@ namespace API.Services
            _context = context;
         }
 
+        public async Task<ActionResult<Recipe>> GetRecipe(int recipeId)
+        {
+            return await _context.Recipe.FindAsync(recipeId);
+        }
+       
         public async Task<IEnumerable<Recipe>> GetRecipes()
         {
-            return await _context.Recipe.ToListAsync();
+           return await _context.Recipe.ToListAsync();
+        }
+       
+        public async Task<IEnumerable<Recipe>> GetRecipeByCategory(int categoryId)
+        {
+            return await _context.Recipe.Where(u => u.CategoryId == categoryId).ToListAsync();
         }
     }
 }

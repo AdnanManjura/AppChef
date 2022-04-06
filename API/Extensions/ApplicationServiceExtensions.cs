@@ -16,6 +16,7 @@ namespace API.Extensions
             services.AddScoped<IRecipeService, RecipeService>();
             services.AddScoped<IIngredientService, IngredientService>();
             services.AddScoped<IRecipeDetailService, RecipeDetailService>();
+            services.AddScoped<IUserService, UserService>();
             services.AddDbContext<DataContext>(options =>
             {
                 options.UseSqlite(config.GetConnectionString("DefaultConnection"));

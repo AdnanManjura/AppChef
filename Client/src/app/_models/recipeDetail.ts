@@ -7,5 +7,5 @@ export interface RecipeDetail {
     recipeId: number;
     recipe: Recipe[];
     quantity: number;
-    measureUnit: number;
+    measureUnit: string;
 }
