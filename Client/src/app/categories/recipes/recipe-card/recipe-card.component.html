@@ -1,5 +1,8 @@
 <div class="cont">
     <h4 *ngIf="recipe">{{recipe.recipeName}}</h4>
+    <div class="card-img-wrapper">
+        <img src="{{recipe.recipePhoto}}" width="102" height="102" class="card-img-top">
+    </div>
     <h6 *ngIf="recipe">Best {{recipe.recipeName.toLowerCase()}} in the world!</h6>
     <button class="btn btn-warning" *ngIf="category recipe" routerLink="/categories/{{category.id}}/{{recipe.id}}">How to
         prepare</button>

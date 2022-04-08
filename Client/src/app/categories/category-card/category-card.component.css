@@ -14,3 +14,11 @@
 .card-img-wrapper{
     overflow: hidden;
 }
+.btn{
+    background-color: orangered;
+    color: white;
+}
+.card{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

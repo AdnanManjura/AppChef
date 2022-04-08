@@ -16,7 +16,7 @@ namespace API.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     CategoryName = table.Column<string>(type: "TEXT", nullable: true),
-                    CategoryPhoto = table.Column<byte[]>(type: "BLOB", nullable: true)
+                    CategoryPhoto = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -24,19 +24,19 @@ namespace API.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Ingredients",
+                name: "Ingredient",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    IngredientsName = table.Column<string>(type: "TEXT", nullable: true),
+                    IngredientName = table.Column<string>(type: "TEXT", nullable: true),
                     PurchaseQuantity = table.Column<float>(type: "REAL", nullable: false),
                     PurchaseMesureUnit = table.Column<int>(type: "INTEGER", nullable: false),
                     Price = table.Column<float>(type: "REAL", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Ingredients", x => x.Id);
+                    table.PrimaryKey("PK_Ingredient", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -61,7 +61,7 @@ namespace API.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     RecipeName = table.Column<string>(type: "TEXT", nullable: true),
-                    RecipePhoto = table.Column<byte[]>(type: "BLOB", nullable: true),
+                    RecipePhoto = table.Column<string>(type: "TEXT", nullable: true),
                     Description = table.Column<string>(type: "TEXT", nullable: true),
                     CategoryId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
@@ -80,18 +80,18 @@ namespace API.Migrations
                 name: "RecipeDetails",
                 columns: table => new
                 {
-                    IngredientsId = table.Column<int>(type: "INTEGER", nullable: false),
+                    IngredientId = table.Column<int>(type: "INTEGER", nullable: false),
                     RecipeId = table.Column<int>(type: "INTEGER", nullable: false),
                     Quantity = table.Column<float>(type: "REAL", nullable: false),
                     MeasureUnit = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_RecipeDetails", x => new { x.IngredientsId, x.RecipeId });
+                    table.PrimaryKey("PK_RecipeDetails", x => new { x.IngredientId, x.RecipeId });
                     table.ForeignKey(
-                        name: "FK_RecipeDetails_Ingredients_IngredientsId",
-                        column: x => x.IngredientsId,
-                        principalTable: "Ingredients",
+                        name: "FK_RecipeDetails_Ingredient_IngredientId",
+                        column: x => x.IngredientId,
+                        principalTable: "Ingredient",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -122,7 +122,7 @@ namespace API.Migrations
                 name: "Users");
 
             migrationBuilder.DropTable(
-                name: "Ingredients");
+                name: "Ingredient");
 
             migrationBuilder.DropTable(
                 name: "Recipe");

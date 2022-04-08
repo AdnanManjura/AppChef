@@ -10,7 +10,7 @@ namespace API.Entities
 
         public string RecipeName { get; set; }
 
-        public byte[] RecipePhoto { get; set; }
+        public string RecipePhoto { get; set; }
 
         public string Description { get; set; }
 

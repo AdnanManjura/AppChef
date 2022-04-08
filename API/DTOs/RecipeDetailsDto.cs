@@ -1,12 +1,13 @@
+using API.Entities;
 using API.Enums;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace API.Entities
+namespace API.DTOs
 {
-    [Table("RecipeDetails")]
-    public class RecipeDetails
+    public class RecipeDetailsDto
     {
         public float Quantity { get; set; }
+
+        public float Cost { get; set; }
 
         public MeasureUnitEnum MeasureUnit { get; set; }
 
@@ -17,6 +18,5 @@ namespace API.Entities
         public int RecipeId { get; set; }
 
         public Recipe Recipe { get; set; }
-
     }
 }

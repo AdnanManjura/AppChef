@@ -1,0 +1,19 @@
+.dropdown-toggle, .dropdown-item {
+    cursor: pointer;
+    text-decoration:none
+}
+.mainB{
+    background-color: orangered;
+}
+
+.mmenu{
+    float: right;
+}
+
+.mTitle{
+    text-align: center;
+}
+
+.mainTitle{
+    padding-top: 1px;
+}

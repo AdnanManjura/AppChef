@@ -9,14 +9,18 @@ import { AuthGuard } from './_guards/auth.guard';
 import { MemberListComponent } from './members/member-list/member-list.component';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
 import { IngredientsComponent } from './categories/ingredients/ingredients.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
+  {path: '', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
   {
     path: '',
     runGuardsAndResolvers: 'always',
     canActivate: [AuthGuard],
     children: [
+      {path: 'home', component: HomeComponent},
       {path: 'members', component: MemberListComponent, canActivate: [AuthGuard]},
       {path: 'members/:memberId', component: MemberDetailComponent},
       {path: 'categories', component: CategoryListComponent},
@@ -25,7 +29,7 @@ const routes: Routes = [
       {path: 'recipes', component: RecipeListComponent},
     ]
   },  
-  {path: '**', component: HomeComponent, pathMatch: 'full'},
+  {path: '**', component: LoginComponent, pathMatch: 'full'},
 ];
 
 @NgModule({

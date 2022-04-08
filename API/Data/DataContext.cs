@@ -18,12 +18,12 @@ namespace API.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
              modelBuilder.Entity<RecipeDetails>()
-               .HasKey(bc => new { bc.IngredientsId, bc.RecipeId });
+               .HasKey(bc => new { bc.IngredientId, bc.RecipeId });
 
             modelBuilder.Entity<RecipeDetails>()
                 .HasOne(bc => bc.Ingredient)
                 .WithMany(b => b.RecipeDetailsList)
-                .HasForeignKey(bc => bc.IngredientsId);
+                .HasForeignKey(bc => bc.IngredientId);
 
             modelBuilder.Entity<RecipeDetails>()
                 .HasOne(bc => bc.Recipe)

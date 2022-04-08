@@ -26,9 +26,9 @@ namespace API.Controllers
 
         [HttpGet]
         [Route("getingredientsbyrecipe/{recipeId}")]
-        public async Task<IEnumerable<RecipeDetails>> GetIngredientsByRecipe(int recipeId)
+        public async Task<IActionResult> GetIngredientsByRecipe(int recipeId)
         {
-            return await _RecipeDetailService.GetIngredientsByRecipe(recipeId);
+            return Ok(await _RecipeDetailService.GetIngredientsByRecipe(recipeId));
         }
     }
 }

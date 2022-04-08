@@ -7,5 +7,11 @@
     float: right;
 }
 .row{
-    margin: 0;
+    margin: 20px;
+}
+.container{
+    background-color:rgb(250, 175, 84);  
+    overflow : scroll;
+    overflow-x : hidden;
+    overflow-y : scroll;
 }

@@ -2,11 +2,14 @@
     float: right;
 }
 .ff{
-    background-color:bisque; 
+    background-color:rgb(250, 175, 84);  
     overflow:scroll;
     overflow-x:hidden;
     overflow-y:scroll;
+    height:440px;
 }
-.ss{
-    height:400px;
+
+.row{
+    margin: 20px;
+
 }

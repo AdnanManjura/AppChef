@@ -1,49 +1,17 @@
 <body class="text-center">
     <div class="container">
         <main class="form-signin">
-            
-            <div class="mainTitle">
-                <div class="mmenu">
-                    <button type="button" class="btn btn-sm btn-primary" *ngIf="(accountService.currentUser$ | async) as user">
-                        <div class="dropdown" dropdown>
-                            <a class="dropdown-toggle text-light" dropdownToggle>Hi, {{user.username | titlecase}}!</a>
-                            <div class="dropdown-menu mt-3" *dropdownMenu>
-                                <a class="dropdown-item">My profile</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item">Settings</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" (click)="logout()" routerLink="/">Logout</a>
-                            </div>
-                        </div>
-                    </button>
-                </div>
-                <h1 class="mt-5">App<span style="color:orange">Chef</span></h1>
-                <div class="mmenu2">
-                    <button type="button" class="btn btn-sm btn-primary" *ngIf="(accountService.currentUser$ | async) as user">
-                        <div class="dropdown" dropdown>
-                            <a class="dropdown-toggle text-light" dropdownToggle>Main menu</a>
-                            <div class="dropdown-menu mt-3" *dropdownMenu>
-                                <button type="button" routerLink="/categories" class="btn">Categories</button>
-                                <div class="dropdown-divider"></div>
-                                <button type="button" routerLink="/members" class="btn">Members</button>
-                                <div class="dropdown-divider"></div>
-                                <button type="button" routerLink="/recipes" class="btn">Recipes</button>
-                            </div>
-                        </div>
-                    </button>
-                </div>
-            </div>
-            
-            
+
+            <h1 class="mt-5">App<span>Chef</span></h1>
+            <hr>
             <form *ngIf="(accountService.currentUser$ | async) === null" #loginForm="ngForm" (ngSubmit)="login()"
                 autocomplete="off">
                 <div class="container">
-                    <input name="username" [(ngModel)]="model.username" class="form-control text-center" type="text"
-                        placeholder="Please enter your username">
+                    <input name="username" [(ngModel)]="model.username" class="iNputs form-control"
+                        type="text" placeholder="Please enter your username">
                     <br>
-
-                    <input name="password" [(ngModel)]="model.password" class="form-control text-center" type="password"
-                        placeholder="Please enter your password">
+                    <input name="password" [(ngModel)]="model.password" class="iNputs form-control"
+                        type="password" placeholder="Please enter your password">
                     <br>
                     <input name="remember" type="checkbox"> Remember me
                     <span class="psw">
@@ -52,10 +20,26 @@
                     <br>
                     <br>
                 </div>
-                <button class="btn btn-outline-primary" type="submit">LOGIN</button>
+                <button class="btn btn-outline-success" type="submit">LOGIN</button>
                 <br>
                 <br>
             </form>
         </main>
     </div>
+
+    <body class="text-center" *ngIf="(accountService.currentUser$ | async) === null">
+        <div>
+            <label>Don't have an account?
+
+                <a href="#" (click)="registerToggle()" routerLink="/register">Sign up</a>
+            </label>
+        </div>
+        <div *ngIf="registerMode" class="container">
+            <div class="row justify-content-center">
+                <div class="col-4">
+                    <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
+                </div>
+            </div>
+        </div>
+    </body>
 </body>

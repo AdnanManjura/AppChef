@@ -9,20 +9,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  registerMode = false;
-
+ 
   constructor(public accountService: AccountService, private router: Router) { }
 
   ngOnInit(): void {
   }
-
-  registerToggle() {
-    this.router.navigateByUrl("/register");
-    this.registerMode = !this.registerMode;
+  logout(){
+    this.accountService.logout();
+    this.router.navigateByUrl('/');
   }
-
-  cancelRegisterMode(event: boolean) {
-    this.registerMode = event;
-  }
-
 }

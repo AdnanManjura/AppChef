@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from 'src/app/_models/category';
+import { AccountService } from 'src/app/_services/account.service';
 import { CategoriesService } from 'src/app/_services/categories.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { CategoriesService } from 'src/app/_services/categories.service';
 export class CategoryListComponent implements OnInit {
   categories: Category[];
 
-  constructor(private categoryService: CategoriesService, private route: ActivatedRoute) { }
+  constructor(public accountService: AccountService, private categoryService: CategoriesService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.loadCategories();
@@ -22,4 +23,6 @@ export class CategoryListComponent implements OnInit {
       this.categories = categories;
     })
   }
+  
+
 }

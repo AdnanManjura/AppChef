@@ -46,8 +46,8 @@ namespace API.Migrations
                     b.Property<string>("CategoryName")
                         .HasColumnType("TEXT");
 
-                    b.Property<byte[]>("CategoryPhoto")
-                        .HasColumnType("BLOB");
+                    b.Property<string>("CategoryPhoto")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -60,7 +60,7 @@ namespace API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("IngredientsName")
+                    b.Property<string>("IngredientName")
                         .HasColumnType("TEXT");
 
                     b.Property<float>("Price")
@@ -74,7 +74,7 @@ namespace API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Ingredients");
+                    b.ToTable("Ingredient");
                 });
 
             modelBuilder.Entity("API.Entities.Recipe", b =>
@@ -92,8 +92,8 @@ namespace API.Migrations
                     b.Property<string>("RecipeName")
                         .HasColumnType("TEXT");
 
-                    b.Property<byte[]>("RecipePhoto")
-                        .HasColumnType("BLOB");
+                    b.Property<string>("RecipePhoto")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -104,7 +104,7 @@ namespace API.Migrations
 
             modelBuilder.Entity("API.Entities.RecipeDetails", b =>
                 {
-                    b.Property<int>("IngredientsId")
+                    b.Property<int>("IngredientId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("RecipeId")
@@ -116,7 +116,7 @@ namespace API.Migrations
                     b.Property<float>("Quantity")
                         .HasColumnType("REAL");
 
-                    b.HasKey("IngredientsId", "RecipeId");
+                    b.HasKey("IngredientId", "RecipeId");
 
                     b.HasIndex("RecipeId");
 
@@ -138,7 +138,7 @@ namespace API.Migrations
                 {
                     b.HasOne("API.Entities.Ingredient", "Ingredient")
                         .WithMany("RecipeDetailsList")
-                        .HasForeignKey("IngredientsId")
+                        .HasForeignKey("IngredientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

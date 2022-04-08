@@ -1,7 +1,6 @@
-<div class="card mb-4">
+<div class="card">
     <div class="card-img-wrapper">
-        <img src="https://media-cdn.tripadvisor.com/media/photo-s/17/f5/39/f7/fooood-at-the-food-department.jpg" width="102" height="102" class="card-img-top">
-        <!-- <img src="{{category.categoryPhoto}}" class="card-img-top"> -->
+        <img src="{{category.categoryPhoto}}" width="102" height="132" class="card-img-top">
     </div>
     <div class="card-body p-1" *ngIf="category">
         <h3 class="card-title text-center mb-1">
@@ -10,7 +9,7 @@
         <div class="text-center">
             <button type="button" 
             routerLink="/categories/{{category.id}}" 
-            class="btn btn-warning">More</button>
+            class="btn">More</button>
         </div>
     </div>
 </div>

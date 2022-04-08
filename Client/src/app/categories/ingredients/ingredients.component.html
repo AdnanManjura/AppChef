@@ -2,37 +2,35 @@
     <h1 *ngIf="category">{{category.categoryName}}</h1>
     <div class="box">
         <div class="recipN" *ngIf="recipe">{{recipe.recipeName}}
-        </div>
-
+            <div class="card-img-wrapper">
+                <img src="{{recipe.recipePhoto}}" class="card-img-top">
+            </div></div>
+       
     </div>
     <div class="ingI">
         <table>
-            <div class="ing" *ngFor="let recipeDetail of recipeDetails">
-                <tr>
-                    <th>Ingredient</th>
-                    <th>Measure unit</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                </tr>
-                <tr>
-                    <td>
-                        <h4 *ngIf="recipeDetail">{{recipeDetail.ingredient.ingredientsName}}</h4>
-                    </td>
-                    <td>
-                        <h4 *ngIf="recipeDetail">{{recipeDetail.measureUnit}}</h4>
-                    </td>
-                    <td>
-                        <h4 *ngIf="recipeDetail">{{recipeDetail.quantity}}</h4>
-                    </td>
-                    <td>
-                        <h4 *ngIf="recipeDetail">{{recipeDetail.ingredient.price*recipeDetail.quantity}}</h4>
-                    </td>
-                </tr>
-
-            </div>
+            <tr>
+                <th>Ingredient</th>
+                <th>Measure unit</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        
+            <tr *ngFor="let recipeDetail of recipeDetails">
+                <td>
+                    <h4 *ngIf="recipeDetail">{{recipeDetail.ingredient.ingredientName}}</h4>
+                </td>
+                <td>
+                    <h4 *ngIf="recipeDetail">{{getMeasureUnitName(recipeDetail.measureUnit)}}</h4>
+                </td>
+                <td>
+                    <h4 *ngIf="recipeDetail">{{recipeDetail.quantity}}</h4>
+                </td>
+                <td>
+                    <h4 *ngIf="recipeDetail">{{recipeDetail.cost}}</h4>
+                </td>
+            </tr>
         </table>
-        <p>-------------------</p>
-
 
         <div class="price">
             <p style="text-align:center;">Price: </p>

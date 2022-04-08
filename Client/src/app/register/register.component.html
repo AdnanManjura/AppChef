@@ -1,27 +1,31 @@
-<form *ngIf="(accountService.currentUser$ | async) === null" #registerForm="ngForm" (ngSubmit)="register()" autocomplete="off" >
-                <h2 class="text-center text primary">Sign <span style="color:orange">Up</span></h2>
+<form *ngIf="(accountService.currentUser$ | async) === null" #registerForm="ngForm" (ngSubmit)="register()"
+    autocomplete="off">
+    <h1 class="text-center text primary">Sign <span style="color:orange">Up</span></h1>
     <hr>
     <div class="form-group">
-        <input type="text" class="form-control text-center" name="username" [(ngModel)]="model.username" placeholder="Please insert your username">
+        <input type="text" class="iNputs form-control text-center" name="username" [(ngModel)]="model.username"
+            placeholder="Please insert your username">
     </div>
     <br>
     <!-- <div class="form-group">
-        <input type="text" class="form-control text-center" name="emailAddress" [(ngModel)]="model.emailAddress" placeholder="Please insert your email address">
+        <input type="text" class="iNputs form-control text-center" name="emailAddress" [(ngModel)]="model.emailAddress" placeholder="Please insert your email address">
     </div>
     <br> -->
     <div class="form-group">
-        <input type="password" class="form-control text-center" name="password" [(ngModel)]="model.password" placeholder="Please insert your password">
+        <input type="password" class="iNputs form-control text-center" name="password" [(ngModel)]="model.password"
+            placeholder="Please insert your password">
     </div>
     <br>
     <!-- <div class="form-group">
-        <input type="password" class="form-control text-center" name="confirmPassword" [(ngModel)]="model.confirmPassword" placeholder="Please confirm your password">
+        <input type="password" class="iNputs form-control text-center" name="confirmPassword" [(ngModel)]="model.confirmPassword" placeholder="Please confirm your password">
     </div>
     <br> -->
     <div class="form-group text-center">
         <button class="btn btn-success mr-2" type="submit">Register</button>
-        <button class="btn btn-outline-success mr-2" (click)="cancel()" type="button" routerLink="/">Cancel</button>
-    <br>
-        <h2 class="text-center text primary">App<span style="color:orange">Chef</span></h2>
-
+        <button class="btn btn-outline-primary ml-2" (click)="cancel()" type="button" routerLink="/">Cancel</button>
+        <br>
+        <div class="logo">
+            <h2 class="text-center text primary">App<span style="color:orange">Chef</span></h2>
+        </div>
     </div>
 </form>

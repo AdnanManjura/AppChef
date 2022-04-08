@@ -12,6 +12,7 @@ import { AccountService } from '../_services/account.service';
 })
 export class LoginComponent implements OnInit {
   model: any = {}
+  registerMode = false;
 
   constructor(public accountService: AccountService, private router: Router, private toastr: ToastrService) { }
 
@@ -21,7 +22,7 @@ export class LoginComponent implements OnInit {
   login()
   {
     this.accountService.login(this.model).subscribe(response => {
-      this.router.navigateByUrl("/categories");
+      this.router.navigateByUrl("/home");
       console.log(response);
     }, error => {
       console.log(error);
@@ -39,6 +40,15 @@ export class LoginComponent implements OnInit {
     }, error => {
       console.log(error)
     })
+  }
+
+  registerToggle() {
+    this.router.navigateByUrl("/register");
+    this.registerMode = !this.registerMode;
+  }
+
+  cancelRegisterMode(event: boolean) {
+    this.registerMode = event;
   }
 
 }
