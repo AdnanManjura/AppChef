@@ -1,4 +1,4 @@
-<div>
+<div class="container">
     <form>
         <label for="sort">Sort by: </label>
         <select name="tSort" id="sorts">
@@ -8,11 +8,9 @@
         <button class="btn btn-outline-primary" type="submit">Submit</button>
     </form>
     <br>
-    <div style="background-color:bisque; overflow:scroll;overflow-x:hidden;overflow-y:scroll;">
-        <div style="height:300px;">
-            <div *ngFor="let recipe of recipes" class="col-2">
-                <app-recipe-card [recipe]="recipe"></app-recipe-card>
-            </div>
+    <div class="cont">
+        <div *ngFor="let recipe of recipes" class="col-2">
+            <app-recipe-card [recipe]="recipe"></app-recipe-card>
         </div>
     </div>
 </div>

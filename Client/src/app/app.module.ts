@@ -21,6 +21,7 @@ import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { IngredientsComponent } from './categories/ingredients/ingredients.component';
 import { RecipeCardComponent } from './categories/recipes/recipe-card/recipe-card.component';
 import { RecipeListComponent } from './categories/recipes/recipe-list/recipe-list.component';
+import { RecipeAddComponent } from './categories/recipes/recipe-add/recipe-add.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { RecipeListComponent } from './categories/recipes/recipe-list/recipe-lis
     CategoryCardComponent,
     IngredientsComponent,
     RecipeCardComponent,
-    RecipeListComponent
+    RecipeListComponent,
+    RecipeAddComponent
   ],
   imports: [
     BrowserModule,

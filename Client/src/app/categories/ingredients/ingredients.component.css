@@ -38,19 +38,21 @@
     float: right;
 }
 
-td,
-th {
-    border: 1px solid #dddddd;
+td, th {
+    border: 1px solid blue;
     text-align: center;
     padding: 8px;
 }
 
 table {
-    border: 1px solid;
     margin-bottom: 10px;
+    width: 100%;
 }
-
-card-img-top {
-    width: 12px;
-    height :12px;
+.img {
+    max-width: 100%;
+    max-height: 100%;
+   }
+.imgImg {
+    width: 150px;
+    height: 150px;
 }

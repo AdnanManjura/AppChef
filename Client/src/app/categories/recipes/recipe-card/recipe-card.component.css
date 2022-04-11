@@ -1,4 +1,12 @@
 .cont{
     border-style: solid;
+    background-color: white;
+}
+.row{
     margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+p{
+    text-align: center;
 }

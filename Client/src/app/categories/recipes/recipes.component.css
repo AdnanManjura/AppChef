@@ -1,0 +1,8 @@
+.cont{
+    background-color: rgb(250, 175, 84);
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 400px;
+    width: 100%;
+}

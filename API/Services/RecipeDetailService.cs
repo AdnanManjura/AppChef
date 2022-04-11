@@ -34,7 +34,7 @@ namespace API.Services
                     MeasureUnit = x.MeasureUnit,
                     Ingredient = x.Ingredient,
                     Recipe = x.Recipe,
-                    Cost = CostCalculator.CalculateRecipeDetailCost(x.Quantity, x.MeasureUnit, x.Ingredient.PurchaseQuantity, x.Ingredient.Price, x.Ingredient.PurchaseMesureUnit)
+                    Cost = CostCalculator.CalculateRecipeDetailCost(x.Quantity, x.MeasureUnit, x.Ingredient.PurchaseQuantity, x.Ingredient.Price, x.Ingredient.PurchaseMesureUnit),
                 })
                 .ToListAsync();
         }

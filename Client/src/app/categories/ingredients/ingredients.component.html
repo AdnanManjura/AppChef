@@ -3,38 +3,39 @@
     <div class="box">
         <div class="recipN" *ngIf="recipe">{{recipe.recipeName}}
             <div class="card-img-wrapper">
-                <img src="{{recipe.recipePhoto}}" class="card-img-top">
-            </div></div>
-       
+                <img src="{{recipe.recipePhoto}}" class="imgImg">
+            </div>
+        </div>
+
     </div>
     <div class="ingI">
         <table>
             <tr>
                 <th>Ingredient</th>
-                <th>Measure unit</th>
                 <th>Quantity</th>
-                <th>Price</th>
+                <th>Measure unit</th>
+                <th>Price (in BAM)</th>
             </tr>
-        
             <tr *ngFor="let recipeDetail of recipeDetails">
                 <td>
                     <h4 *ngIf="recipeDetail">{{recipeDetail.ingredient.ingredientName}}</h4>
                 </td>
                 <td>
-                    <h4 *ngIf="recipeDetail">{{getMeasureUnitName(recipeDetail.measureUnit)}}</h4>
+                    <h4 *ngIf="recipeDetail">{{recipeDetail.quantity}}</h4>
                 </td>
                 <td>
-                    <h4 *ngIf="recipeDetail">{{recipeDetail.quantity}}</h4>
+                    <h4 *ngIf="recipeDetail">{{getMeasureUnitName(recipeDetail.measureUnit)}}</h4>
                 </td>
                 <td>
                     <h4 *ngIf="recipeDetail">{{recipeDetail.cost}}</h4>
                 </td>
             </tr>
         </table>
-
-        <div class="price">
-            <p style="text-align:center;">Price: </p>
+        
+       <div class="price" *ngIf="recipeDetails">
+            <p style="text-align:center;">{{calculateTotalCost()}}</p>
         </div>
+
         <div class="totP">
             <p style="text-align:right; margin-right: 5px;">Total price: </p>
         </div>

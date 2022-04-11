@@ -1,5 +1,6 @@
+<app-home></app-home>
 <h1 *ngIf="category">{{category.categoryName}}</h1>
-<button class="addNewR btn btn-outline-primary">Add a new recipe</button>
+<button class="addNewR btn btn-outline-primary" *ngIf="category" routerLink="/recipe-add/{{category.id}}">Add a new recipe</button>
 <div class="search-container">
   <input type="text" placeholder="Search for recipes..." name="search">
   <button class="btn btn-outline-primary" type="submit">Search</button>

@@ -11,6 +11,7 @@ import { MemberDetailComponent } from './members/member-detail/member-detail.com
 import { IngredientsComponent } from './categories/ingredients/ingredients.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { RecipeAddComponent } from './categories/recipes/recipe-add/recipe-add.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
@@ -27,6 +28,7 @@ const routes: Routes = [
       {path: 'categories/:categoryId', component: CategoryDetailComponent},
       {path: 'categories/:categoryId/:recipeId', component: IngredientsComponent},
       {path: 'recipes', component: RecipeListComponent},
+      {path: 'recipe-add/:categoryId', component: RecipeAddComponent},
     ]
   },  
   {path: '**', component: LoginComponent, pathMatch: 'full'},

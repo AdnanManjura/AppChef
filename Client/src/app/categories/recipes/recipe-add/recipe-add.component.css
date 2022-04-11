@@ -1,0 +1,43 @@
+.inputs{
+    width: 49%;
+}
+
+.rData{
+    float: right;
+    width: 49%;
+}
+
+.browse-container{
+    width: 60%;
+}
+.btn-outline-primary{
+    float: right;
+}
+table, th, td{
+    border: 1px solid black;
+}
+table{
+    margin-top: 60px;
+}
+.totP {
+    border-style: solid;
+    width: 86%;
+    margin-bottom: 20px;
+    border-width: thin;
+}
+.price {
+    border-style: solid;
+    width: 12%;
+    margin-bottom: 20px;
+    float: right;
+}
+.bB{
+    float: right;
+}
+.bP{
+    text-align: center;
+}
+.btn{
+    background-color: orangered;
+    color: white;
+}

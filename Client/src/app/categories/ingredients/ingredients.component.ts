@@ -22,21 +22,19 @@ export class IngredientsComponent implements OnInit {
   measureUnits: any;
 
   constructor(
-    private recipeService: RecipesService, 
-    private categoryService: CategoriesService, 
-    private ingredientService: IngredientsService, 
+    private recipeService: RecipesService,
+    private categoryService: CategoriesService,
+    private ingredientService: IngredientsService,
     private recipeDetailService: RecipeDetailsService,
     private route: ActivatedRoute) {
-       this.measureUnits = Object.keys(MeasureUnit).filter(key => isNaN(+key)); //dropdown
-       console.log(this.measureUnits);
-     }
+    this.measureUnits = Object.keys(MeasureUnit).filter(key => isNaN(+key)); //dropdown
+  }
 
   ngOnInit(): void {
     this.loadRecipe();
     this.loadCategory();
     this.loadIngredients();
     this.loadIngredientsByRecipe();
-
   }
 
   loadRecipe() {
@@ -51,20 +49,28 @@ export class IngredientsComponent implements OnInit {
     })
   }
 
-  loadIngredients(){
+  loadIngredients() {
     this.ingredientService.getIngredients().subscribe(ingredients => {
       this.ingredients = ingredients;
     })
   }
 
-  loadIngredientsByRecipe(){
+  loadIngredientsByRecipe() {
     let id = this.route.snapshot.paramMap.get('recipeId') as unknown as number;
     this.recipeDetailService.getIngredientsByRecipe(id).subscribe(recipeDetail => {
       this.recipeDetails = recipeDetail;
-    } )
+    })
   }
+  
+  calculateTotalCost(){
+    var totalCost=0;
+    for (var index = 0; index < this.recipeDetails.length; index++)
+       totalCost += this.recipeDetails[index].cost;
 
-  getMeasureUnitName(measure){
+       return totalCost;
+    }
+
+  getMeasureUnitName(measure) {
     return MeasureUnit[measure];
   }
 }
