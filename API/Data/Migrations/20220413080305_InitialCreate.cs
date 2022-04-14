@@ -31,7 +31,7 @@ namespace API.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     IngredientName = table.Column<string>(type: "TEXT", nullable: true),
                     PurchaseQuantity = table.Column<float>(type: "REAL", nullable: false),
-                    PurchaseMesureUnit = table.Column<int>(type: "INTEGER", nullable: false),
+                    PurchaseMeasureUnit = table.Column<int>(type: "INTEGER", nullable: false),
                     Price = table.Column<float>(type: "REAL", nullable: false)
                 },
                 constraints: table =>
@@ -80,8 +80,8 @@ namespace API.Migrations
                 name: "RecipeDetails",
                 columns: table => new
                 {
-                    IngredientId = table.Column<int>(type: "INTEGER", nullable: false),
                     RecipeId = table.Column<int>(type: "INTEGER", nullable: false),
+                    IngredientId = table.Column<int>(type: "INTEGER", nullable: false),
                     Quantity = table.Column<float>(type: "REAL", nullable: false),
                     MeasureUnit = table.Column<int>(type: "INTEGER", nullable: false)
                 },

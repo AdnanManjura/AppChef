@@ -3,16 +3,17 @@
     overflow: scroll;
     overflow-x: hidden;
     overflow-y: scroll;
-    height: 570px;
+    height: 440px;
 }
-.btB{
-    margin: auto;
+.btLM{
+    margin-bottom: 10px;
     text-align: center;
-}
-.title{
-    margin-top: 20px;
 }
 .btn{
     background-color: orangered;
     color: white;
+}
+.btn:hover{
+    background-color: rgba(255, 68, 0, 0.800);
+    transition-duration: 0.2s;
 }

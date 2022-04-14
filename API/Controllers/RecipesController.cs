@@ -68,10 +68,10 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        [Route("getrecipebycategory/{categoryId}")]
-        public async Task<IEnumerable<Recipe>> GetRecipeByCategory(int categoryId)
+        [Route("getrecipesbycategory/{categoryId}")]
+        public async Task<IEnumerable<Recipe>> GetRecipesByCategory(int categoryId)
         {
-            return await _recipeService.GetRecipeByCategory(categoryId);
+            return await _recipeService.GetRecipesByCategory(categoryId);
         }
     }
 }

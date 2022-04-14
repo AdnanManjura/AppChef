@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AccountService } from '../_services/account.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Member } from 'src/app/_models/member';
+import { MembersService } from 'src/app/_services/members.service';
 
 @Component({
   selector: 'app-home',
@@ -9,12 +11,28 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  member: Member;
+  mId: number;
  
-  constructor(public accountService: AccountService, private router: Router) { }
+  constructor(
+    public accountService: AccountService, 
+    private router: Router,
+    private route: ActivatedRoute,
+    private memberService: MembersService) { 
+      this.mId = this.route.snapshot.paramMap.get("memberId") as unknown as number
+    }
 
   ngOnInit(): void {
+   //this.loadMember(this.mId);
   }
-  logout(){
+
+  loadMember(mId) {
+    this.memberService.getMember(mId).subscribe(member => {
+      this.member = member;
+    })
+  }
+
+  logout() {
     this.accountService.logout();
     this.router.navigateByUrl('/');
   }

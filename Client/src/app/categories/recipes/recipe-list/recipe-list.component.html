@@ -1,19 +1,18 @@
 <app-home></app-home>
 <br>
 <h3>All recipes</h3>
-<div class="container" >
-    <div style="height:400px;">
-        <div class="row">
-            <div class="cont" *ngFor="let recipe of recipes">
-                <h4 *ngIf="recipe">{{recipe.recipeName}}</h4>
-                <h6 *ngIf="recipe">Best {{recipe.recipeName.toLowerCase()}} in the world!</h6>
-            </div>
+<div class="container">
+    <div class="row">
+        <div class="cont" *ngFor="let recipe of recipes">
+            <h4 *ngIf="recipe">{{recipe.recipeName}}</h4>
+            <h6 *ngIf="recipe">Best {{recipe.recipeName.toLowerCase()}} in the world!</h6>
         </div>
+    </div>
+    <div class="btLM">
+        <button class="btn">...</button>
     </div>
 </div>
 <br>
-<button class="bB btn btn-primary" onclick="history.back()">Back</button>
-
-<section style="text-align:center">
-    <button class="btn btn-primary">...</button>
-</section>
+<div class="bB">
+    <button class="btn" onclick="history.back()">Back</button>
+</div>

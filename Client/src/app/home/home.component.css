@@ -1,19 +1,33 @@
 .dropdown-toggle, .dropdown-item {
     cursor: pointer;
-    text-decoration:none
+    text-decoration: none;
 }
-.mainB{
+.dropdown-menu{
+    position: absolute;
+    right: 0;
+}
+.mainB {
     background-color: orangered;
 }
 
-.mmenu{
+.mainB:hover {
+    background-color: rgba(255, 68, 0, 0.800);
+    transition-duration: 0.2s;
+}
+
+.mmenu {
     float: right;
 }
 
-.mTitle{
+.mTitle {
     text-align: center;
 }
 
-.mainTitle{
-    padding-top: 1px;
+.mainTitle {
+    padding-top: 50px;
+}
+
+.dropdown-menu {
+    background-color: bisque;
+    margin-top: 10px;
 }

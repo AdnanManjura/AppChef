@@ -24,7 +24,7 @@ namespace API.Services
            return await _context.Recipe.ToListAsync();
         }
        
-        public async Task<IEnumerable<Recipe>> GetRecipeByCategory(int categoryId)
+        public async Task<IEnumerable<Recipe>> GetRecipesByCategory(int categoryId)
         {
             return await _context.Recipe.Where(u => u.CategoryId == categoryId).ToListAsync();
         }

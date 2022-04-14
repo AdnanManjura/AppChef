@@ -18,7 +18,6 @@ export class MemberDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadMember(this.mId);
-    
   }
 
   loadMember(mId) {

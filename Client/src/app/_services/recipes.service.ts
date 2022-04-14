@@ -20,7 +20,7 @@ export class RecipesService {
     return this.http.get<Recipe>(this.baseUrl + 'recipes/' + id);
   }
   getRecipesByCategory(id:number){
-    return this.http.get<Recipe[]>(this.baseUrl+'recipes/getrecipebycategory/'+id);
+    return this.http.get<Recipe[]>(this.baseUrl+'recipes/getrecipesbycategory/'+id);
   }
   addRecipe(model: any){
     return this.http.post(this.baseUrl + 'recipes/addRecipe', model).pipe(

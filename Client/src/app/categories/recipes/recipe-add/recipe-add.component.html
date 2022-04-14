@@ -1,47 +1,54 @@
 <app-home></app-home>
+<br>
+<h3 *ngIf="category">Add new recipe into {{category.categoryName}} category!</h3>
+
 <form #addRecipeForm="ngForm" (ngSubmit)="addRecipe()" autocomplete="off">
-    <div class="container">
-        <br>
-        <h4 *ngIf="category">Add new recipe into {{category.categoryName}} category!</h4>
-        <div class="rData">
-            <div class="browse-container">
-                <input type="text" placeholder="Upload photo..." class="form-control" name="browse">
-                <button class="btn btn-outline-primary" type="submit">Browse</button>
+    <div class="rData">
+        <table>
+            <tr>
+                <th>Ingredient</th>
+                <th>Quantity</th>
+                <th>Measure unit</th>
+                <th>Price (in BAM)</th>
+            </tr>
+            <tr>
+                <td>
+                    <select>
+                        <option *ngFor="let ingredient of ingredients" [ngValue]="ingredient">
+                            {{ingredient.ingredientName}}</option>
+                    </select>
+                </td>
+                <td><input type="text" name="quantity" class="qInput"></td>
+                <td>unit</td>
+                <td>0.00</td>
+            </tr>
+        </table>
 
-            </div>
+        <button class="addMoreI btn-sm">Add more ingredients</button>
 
-            <table>
-                <tr>
-                    <th>Ingredient</th>
-                    <th>Quantity</th>
-                    <th>Meausere unit</th>
-                    <th>Price</th>
-                </tr>
-                <tr>
-                    <td>Ingredient</td>
-                    <td>Quantity</td>
-                    <td>Meausere unit</td>
-                    <td>Price</td>
-                </tr>
-            </table>
-            <br>
-            <div class="price">
-                <p style="text-align:center;">Price</p>
-            </div>
-            <div class="totP">
-                <p style="text-align:right; margin-right: 5px;">Total price: </p>
-            </div>
+        <div class="price">
+            <h3><u>0.00</u></h3>
         </div>
 
-        <input name="recipename" class="inputs form-control" type="text" [(ngModel)]="model.recipename" placeholder="Please insert recipe name">
-        <br>
-        <textarea rows="15" name="description" class="inputs form-control" [(ngModel)]="model.description"
-            placeholder="Please type some description about this recipe"></textarea>
+        <div class="totP">
+            <h3>Total price:</h3>
+        </div>
     </div>
-    <br>
-    <div class="btB">
-        <button class="btn" type="submit" >Add new recipe!</button>
 
-        <button class="bB btn btn-primary" onclick="history.back()">Back</button>
+    <div class="data">
+        <input name="recipename" class="inputs inputs1" type="text" [(ngModel)]="model.recipename"
+            placeholder="Please insert recipe name...">
+        <br>
+        <input name="recipePhoto" class="inputs inputs1" type="text" [(ngModel)]="model.recipePhoto"
+            placeholder="Please insert photo URL...">
+        <br>
+        <textarea rows="10" name="description" class="inputs" [(ngModel)]="model.description"
+            placeholder="Please type some description about this recipe..."></textarea>
     </div>
 </form>
+
+<button class="btn btn-lg" type="submit" (click)="addRecipe()">Add new recipe!</button>
+
+<div class="bB">
+    <button class="btn" onclick="history.back()">Back</button>
+</div>

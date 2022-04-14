@@ -12,7 +12,7 @@ namespace API.Entities
 
         public float PurchaseQuantity { get; set; }
 
-        public MeasureUnitEnum PurchaseMesureUnit { get; set; }
+        public MeasureUnitEnum PurchaseMeasureUnit { get; set; }
 
         public float Price { get; set; }
 

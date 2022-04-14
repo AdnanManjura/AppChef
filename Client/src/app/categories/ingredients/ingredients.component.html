@@ -1,48 +1,56 @@
-<div class="container">
-    <h1 *ngIf="category">{{category.categoryName}}</h1>
-    <div class="box">
-        <div class="recipN" *ngIf="recipe">{{recipe.recipeName}}
-            <div class="card-img-wrapper">
-                <img src="{{recipe.recipePhoto}}" class="imgImg">
+<app-home></app-home>
+<br>
+<div class="containter">
+    <div class="cont" *ngIf="category recipe">
+        <h3>{{category.categoryName}} recipes > {{recipe.recipeName}}</h3>
+    </div>
+
+    <div class="desc">
+        <p>Description</p>
+        <div class="descText" *ngIf="recipe">{{recipe.description}}</div>
+    </div>
+    <div class="data">
+        
+        <div class="ingI">
+            <table>
+                <tr>
+                    <th>Ingredient</th>
+                    <th>Quantity</th>
+                    <th>Measure unit</th>
+                    <th>Price (in BAM)</th>
+                </tr>
+                <tr *ngFor="let recipeDetail of recipeDetails">
+                    <td>
+                        <h4 *ngIf="recipeDetail">{{recipeDetail.ingredient.ingredientName}}</h4>
+                    </td>
+                    <td>
+                        <h4 *ngIf="recipeDetail">{{recipeDetail.quantity}}</h4>
+                    </td>
+                    <td>
+                        <h4 *ngIf="recipeDetail">{{getMeasureUnitName(recipeDetail.measureUnit)}}</h4>
+                    </td>
+                    <td>
+                        <h4 *ngIf="recipeDetail">{{recipeDetail.cost}}</h4>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="price" *ngIf="recipeDetails">
+                <h3><u>{{calculateTotalCost()}}</u></h3>
+            </div>
+
+            <div class="totP">
+                <h3>Total price:</h3>
             </div>
         </div>
 
-    </div>
-    <div class="ingI">
-        <table>
-            <tr>
-                <th>Ingredient</th>
-                <th>Quantity</th>
-                <th>Measure unit</th>
-                <th>Price (in BAM)</th>
-            </tr>
-            <tr *ngFor="let recipeDetail of recipeDetails">
-                <td>
-                    <h4 *ngIf="recipeDetail">{{recipeDetail.ingredient.ingredientName}}</h4>
-                </td>
-                <td>
-                    <h4 *ngIf="recipeDetail">{{recipeDetail.quantity}}</h4>
-                </td>
-                <td>
-                    <h4 *ngIf="recipeDetail">{{getMeasureUnitName(recipeDetail.measureUnit)}}</h4>
-                </td>
-                <td>
-                    <h4 *ngIf="recipeDetail">{{recipeDetail.cost}}</h4>
-                </td>
-            </tr>
-        </table>
-        
-       <div class="price" *ngIf="recipeDetails">
-            <p style="text-align:center;">{{calculateTotalCost()}}</p>
+        <div class="card-img-wrapper" *ngIf="recipe">
+            <img src="{{recipe.recipePhoto}}" height="380" class="card-img-top">
         </div>
+    </div>
 
-        <div class="totP">
-            <p style="text-align:right; margin-right: 5px;">Total price: </p>
-        </div>
-        <button class="bB btn btn-primary" onclick="history.back()">Back</button>
-    </div>
-    <p class="descN">Description</p>
-    <div class="desc">
-        <div class="descText" *ngIf="recipe">{{recipe.description}}</div>
-    </div>
+</div>
+<br>
+<div class="bB">
+    <button class="btn" onclick="history.back()">Back</button>
 </div>
