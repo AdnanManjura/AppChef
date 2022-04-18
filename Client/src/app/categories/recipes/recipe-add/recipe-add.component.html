@@ -9,30 +9,21 @@
                 <th>Ingredient</th>
                 <th>Quantity</th>
                 <th>Measure unit</th>
-                <th>Price (in BAM)</th>
             </tr>
             <tr>
                 <td>
                     <select>
-                        <option *ngFor="let ingredient of ingredients" [ngValue]="ingredient">
+                        <option *ngFor="let ingredient of ingredients" [ngValue]="ingredient" >
                             {{ingredient.ingredientName}}</option>
                     </select>
                 </td>
                 <td><input type="text" name="quantity" class="qInput"></td>
                 <td>unit</td>
-                <td>0.00</td>
             </tr>
         </table>
 
         <button class="addMoreI btn-sm">Add more ingredients</button>
 
-        <div class="price">
-            <h3><u>0.00</u></h3>
-        </div>
-
-        <div class="totP">
-            <h3>Total price:</h3>
-        </div>
     </div>
 
     <div class="data">

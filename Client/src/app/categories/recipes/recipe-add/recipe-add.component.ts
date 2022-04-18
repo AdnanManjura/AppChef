@@ -37,9 +37,11 @@ export class RecipeAddComponent implements OnInit {
   }
 
   addRecipe() {
-    console.log(this.model);
+    console.log(this.model);   
     this.recipeService.addRecipe(this.model).subscribe(response => {
+      this.router.navigateByUrl("/categories");
       console.log(response);
+      
     }, error => {
       console.log(error);
     })

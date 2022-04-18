@@ -24,13 +24,13 @@ namespace API.Controllers
             return await _UserService.GetUsers();
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<AppUser>> GetUser(int id)
+        [HttpGet("{userId}")]
+        public async Task<ActionResult<AppUser>> GetUser(int userId)
         {
-            if(id < 1)
+            if(userId < 1)
                 return BadRequest();
             
-            return await _UserService.GetUser(id);
+            return await _UserService.GetUser(userId);
         }
     }
 }
