@@ -15,9 +15,9 @@ namespace API
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
-            // var host = CreateHostBuilder(args).Build();
+            var host = CreateHostBuilder(args).Build();
             // using var scope = host.Services.CreateScope();
             // var services = scope.ServiceProvider;
             // try
@@ -32,9 +32,8 @@ namespace API
             //     logger.LogError(ex, "An error occurred during migration");
             // }
 
-            // await host.RunAsync();
+            await host.RunAsync();
 
-            CreateHostBuilder(args).Build().Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

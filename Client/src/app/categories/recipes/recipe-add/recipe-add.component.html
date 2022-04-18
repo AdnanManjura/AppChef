@@ -12,12 +12,9 @@
             </tr>
             <tr>
                 <td>
-                    <select>
-                        <option *ngFor="let ingredient of ingredients" [ngValue]="ingredient" >
-                            {{ingredient.ingredientName}}</option>
-                    </select>
+                    <input type="text" name="ingredientName" class="iInput" [(ngModel)]="model.ingredientName">
                 </td>
-                <td><input type="text" name="quantity" class="qInput"></td>
+                <td><input type="text" name="quantity" class="qInput" [(ngModel)]="model.quantity"></td>
                 <td>unit</td>
             </tr>
         </table>

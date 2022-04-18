@@ -1,10 +1,8 @@
 using API.Enums;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace API.Entities
 {
-    [Table("RecipeDetails")]
-    public class RecipeDetails
+     public class RecipeDetail
     {
         public float Quantity { get; set; }
 

@@ -10,7 +10,7 @@ namespace API.Interfaces
 {
     public interface ITokenService
     {
-        string CreateToken (AppUser user);
+        string CreateToken (User user);
         Task<bool> UserExists(string username);
     }
 }

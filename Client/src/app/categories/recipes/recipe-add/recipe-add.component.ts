@@ -7,6 +7,9 @@ import { MeasureUnit } from 'src/app/_models/recipeDetail';
 import { CategoriesService } from 'src/app/_services/categories.service';
 import { IngredientsService } from 'src/app/_services/ingredients.service';
 import { RecipesService } from 'src/app/_services/recipes.service';
+import { FormBuilder } from '@angular/forms';
+import { Validators } from '@angular/forms';
+import { FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-recipe-add',
@@ -15,10 +18,10 @@ import { RecipesService } from 'src/app/_services/recipes.service';
 })
 export class RecipeAddComponent implements OnInit {
   category: Category
-  ingredients: Ingredient[];
-  model: any = {};
-  measureUnits: MeasureUnit;
-  categoryId: any;
+  ingredients: Ingredient[]
+  model: any = {}
+  measureUnits: MeasureUnit
+  categoryId: any
   
   constructor(
     private recipeService: RecipesService,

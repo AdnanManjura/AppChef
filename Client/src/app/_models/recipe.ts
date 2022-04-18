@@ -1,5 +1,4 @@
 import { Category } from './category';
-import { Photo } from './photo';
 
 export interface Recipe {
     id: number;
@@ -7,5 +6,4 @@ export interface Recipe {
     recipePhoto: string;
     recipeDecsription: string;
     categories: Category[];
-    photos: Photo[];
 }

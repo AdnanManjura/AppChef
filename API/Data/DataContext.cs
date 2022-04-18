@@ -9,25 +9,25 @@ namespace API.Data
         {
         }
        
-        public DbSet<AppUser> Users { get; set; }
-        public DbSet<Category> Category { get; set; }
-        public DbSet<Recipe> Recipe { get; set; }
-        public DbSet<RecipeDetails> RecipeDetails { get; set; }
-        public DbSet<Ingredient> Ingredient { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Recipe> Recipes { get; set; }
+        public DbSet<RecipeDetail> RecipeDetails { get; set; }
+        public DbSet<Ingredient> Ingredients { get; set; }
          
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-             modelBuilder.Entity<RecipeDetails>()
+             modelBuilder.Entity<RecipeDetail>()
                .HasKey(bc => new { bc.IngredientId, bc.RecipeId });
 
-            modelBuilder.Entity<RecipeDetails>()
+            modelBuilder.Entity<RecipeDetail>()
                 .HasOne(bc => bc.Ingredient)
-                .WithMany(b => b.RecipeDetailsList)
+                .WithMany(b => b.RecipeDetails)
                 .HasForeignKey(bc => bc.IngredientId);
 
-            modelBuilder.Entity<RecipeDetails>()
+            modelBuilder.Entity<RecipeDetail>()
                 .HasOne(bc => bc.Recipe)
-                .WithMany(c => c.RecipeDetailsList)
+                .WithMany(c => c.RecipeDetails)
                 .HasForeignKey(bc => bc.RecipeId);
         }
     }
