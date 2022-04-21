@@ -1,18 +1,19 @@
 <app-home></app-home>
 <br>
 <h3>Our members</h3>
-<div class="ff">
-    <div class="ss">
-        <div class="row">
-            <div *ngFor="let member of members" class="col-2">
-                <app-member-card [member]="member"></app-member-card>
-            </div>
+<div class="container">
+    <div class="row">
+        <div *ngFor="let member of members" class="col-2">
+            <app-member-card [member]="member"></app-member-card>
         </div>
     </div>
+
+    <div class="btLM">
+        <button class="btn">...</button>
+    </div>
+    
 </div>
 <br>
-<button class="bB btn btn-primary" onclick="history.back()">Back</button>
-
-<section style="text-align:center">
-    <button class="btn btn-primary">...</button>
-</section>
+<div class="bB">
+    <button class="btn" onclick="history.back()">Back</button>
+</div>

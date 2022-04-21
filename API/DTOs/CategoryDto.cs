@@ -1,6 +1,8 @@
-namespace API.Entities
+using API.Entities;
+
+namespace API.DTOs
 {
-    public class Category
+    public class CategoryDto
     {
         public int Id { get; set; }
 
@@ -9,5 +11,6 @@ namespace API.Entities
         public string Photo { get; set; }
         
         public List<Recipe> Recipes { get; set; }
+        
     }
 }

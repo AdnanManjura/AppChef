@@ -1,8 +1,9 @@
+using API.Entities;
 using API.Enums;
 
-namespace API.Entities
+namespace API.DTOs
 {
-    public class Ingredient
+    public class IngredientDto
     {
         public int Id { get; set; }
 
@@ -15,6 +16,6 @@ namespace API.Entities
         public float Price { get; set; }
 
         public List<RecipeDetail> RecipeDetails { get; set; }
-
+        
     }
 }

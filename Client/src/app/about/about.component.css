@@ -1,0 +1,27 @@
+/* .dropbtn{
+    background-color: orangered;
+    color: white;
+    cursor: pointer;
+}
+
+.dropbtn:hover{
+    background-color: rgba(255, 68, 0, 0.800);
+    transition-duration: 0.2s;
+}
+
+.dropdown{
+    display: inline-block;
+}
+
+.dropdown-content{
+    display: none;
+    border: 1px black solid;
+}
+
+.dropdown-content a {
+    display: block;
+}
+
+.dropdown:hover .dropdown-content{
+    display: block;
+} */

@@ -1,12 +1,31 @@
 <app-home></app-home>
-<h1 *ngIf="category">{{category.categoryName}}</h1>
-<button class="addNewR btn btn-outline-primary" *ngIf="category" routerLink="/recipe-add/{{category.id}}">Add a new recipe</button>
-<div class="search-container">
-  <input type="text" placeholder="Search for recipes..." name="search">
-  <button class="btn btn-outline-primary" type="submit">Search</button>
+<br>
+<h3 *ngIf="category">{{category.categoryName}} recipes</h3>
+
+<button class="addNewR btn-lg" *ngIf="category" routerLink="/recipe-add/{{category.id}}">Add new
+  recipe</button>
+
+<form>
+  <input type="text" placeholder="Search.." name="search" class="sRI form-inline">
+  <button class="button button1" type="submit">Search</button>
+</form>
+
+<div class="con">
+  <div class="con2">
+    <form class="sF">
+      <label for="sort">Sort by price:</label>
+      <select name="tSort" id="sorts">
+        <option value="asc">Ascending</option>
+        <option value="desc">Descending</option>
+      </select>
+    </form>
+  </div>
+  <p class="lR">Latest recipes in our app</p>
 </div>
 
-<p>Latest recipes in our app</p>
 <app-recipes></app-recipes>
 
-<button class="bB btn btn-primary" onclick="history.back()">Back</button>
+<br>
+<div class="bB">
+  <button class="btn" onclick="history.back()">Back</button>
+</div>

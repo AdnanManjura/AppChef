@@ -5,25 +5,25 @@
         <button type="button" class="btn mainB" *ngIf="(accountService.currentUser$ | async) as user">
             <div class="dropdown" dropdown>
                 <a class="dropdown-toggle text-light" dropdownToggle>Main menu</a>
-                <div class="dropdown-menu mt-3" *dropdownMenu>
-                    <button type="button" routerLink="/categories" class="btn">Homepage</button>
+                <div class="dropdown-menu mt-2" *dropdownMenu>
+                    <button type="button" routerLink="/categories" class="btn"><strong>Homepage</strong></button>
                     <div class="dropdown-divider"></div>
-                    <button type="button" routerLink="/members" class="btn">Members</button>
+                    <button type="button" routerLink="/members" class="btn"><strong>Members</strong></button>
                     <div class="dropdown-divider"></div>
-                    <button type="button" routerLink="/recipes" class="btn">Recipes</button>
+                    <button type="button" routerLink="/recipes" class="btn"><strong>Recipes</strong></button>
                 </div>
             </div>
         </button>
         <div class="mmenu">
-            <button type="button" class="btn mainB" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" *ngIf="(accountService.currentUser$ | async) as user">
+            <button type="button" class="btn mainB" *ngIf="(accountService.currentUser$ | async) as user">
                 <div class="dropdown" dropdown>
                     <a class="dropdown-toggle text-light" dropdownToggle>Hi, {{user.username | titlecase}}!</a>
-                    <div class="dropdown-menu mt-3" *dropdownMenu>
-                        <a class="dropdown-item">My profile</a>
+                    <div class="dropdown-menu mt-2" *dropdownMenu >
+                        <button class="btn" routerLink="/members"><strong>My profile</strong></button>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item">Settings</a>
+                        <button type="button" class="btn"><strong>About</strong></button>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" (click)="logout()" routerLink="/">Logout</a>
+                        <button type="button" class="btn" (click)="logout()" routerLink="/"><strong>Logout</strong></button>
                     </div>
                 </div>
             </button>

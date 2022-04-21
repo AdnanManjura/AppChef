@@ -1,6 +1,56 @@
-.addNewR{
+.addNewR {
+    float: right;
+    background-color: white;
+    color: orangered;
+    border: 1.5px solid orangered;
+    border-radius: 3px;
+}
+.addNewR:hover{
+    background-color: orangered;
+    color: white;
+    transition-duration: 0.4s;
+    border-radius: 3px;
+}
+
+.container {
+    margin-left: 0px;
+}
+.button1 {
+    background-color: white;
+    color: orangered;
+    border: 1.5px solid orangered;
+    border-radius: 3px;
+}
+
+.button1:hover {
+    background-color: orangered;
+    color: white;
+    transition-duration: 0.4s;
+    border-radius: 3px;
+}
+.lR{
+    font-weight: bold;
+}
+.sRI{
+    width: 25%;
+}
+label{
+    margin-right: 5px;
+}
+.con2{
+    float: right;
+ }
+ .con{
+     margin-top: 70px;
+ }
+ .bB{
     float: right;
 }
-.bB{
-    float: right;
+.btn{
+    background-color: orangered;
+    color: white;
+}
+.btn:hover{
+    background-color: rgba(255, 68, 0, 0.800);
+    transition-duration: 0.2s;
 }

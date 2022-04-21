@@ -1,20 +1,9 @@
 <div class="container">
-    <form>
-        <label for="sort">Sort by: </label>
-        <select name="tSort" id="sorts">
-            <option value="asc">Ascending</option>
-            <option value="desc">Descending</option>
-        </select>
-        <button class="btn btn-outline-primary" type="submit">Submit</button>
-    </form>
-    <br>
-    <div class="cont">
-        <div *ngFor="let recipe of recipes" class="col-2">
-            <app-recipe-card [recipe]="recipe"></app-recipe-card>
-        </div>
+    <div *ngFor="let recipe of recipes" class="cont">
+        <app-recipe-card [recipe]="recipe"></app-recipe-card>
     </div>
-</div>
-<br>
-<div style="text-align:center">
-    <button class="btn btn-primary">...</button>
+    
+    <div class="btLM">
+        <button class="btn">...</button>
+    </div>
 </div>

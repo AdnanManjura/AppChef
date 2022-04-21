@@ -7,6 +7,7 @@ namespace API.Interfaces
     {
          Task<IEnumerable<Recipe>> GetRecipes();
          Task<ActionResult<Recipe>> GetRecipe(int recipeId);
-         Task<IEnumerable<Recipe>> GetRecipeByCategory(int categoryId);
+         Task<IEnumerable<Recipe>> GetRecipes(int categoryId);
+         Task<ActionResult<Recipe>> AddRecipe(Recipe recipeR);
     }
 }

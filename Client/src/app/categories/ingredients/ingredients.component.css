@@ -1,18 +1,16 @@
-.recipN {
-    border-style: solid;
-    width: 49%;
-}
-
 .desc {
     border-style: solid;
-    width: 49%;
+    border-color: grey;
+    width: 100%;
     border-width: thin;
-    height: 220px;
+    height: 80px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
 }
 
-.descN {
-    margin-top: 15px;
-    margin-bottom: 1px;
+.card-img-wrapper{
+    width: 49%;
 }
 
 .ingI {
@@ -20,39 +18,42 @@
     float: right;
 }
 
-.totP {
-    border-style: solid;
-    width: 86%;
-    margin-bottom: 20px;
-    border-width: thin;
-}
-
-.price {
-    border-style: solid;
-    width: 12%;
-    margin-bottom: 20px;
-    float: right;
-}
-
-.bB {
-    float: right;
-}
-
-td, th {
-    border: 1px solid blue;
-    text-align: center;
-    padding: 8px;
-}
-
 table {
     margin-bottom: 10px;
     width: 100%;
 }
-.img {
-    max-width: 100%;
-    max-height: 100%;
-   }
-.imgImg {
-    width: 150px;
-    height: 150px;
+
+td, th {
+    text-align: center;
+    padding: 8px;
+}
+
+th{
+    border-bottom: 1px solid grey;
+}
+
+.totP {
+    width: 78%;
+    margin-bottom: 20px;
+    border-width: thin;
+    text-align: right; 
+    margin-right: 5px;
+}
+
+.price {
+    width: 20%;
+    margin-bottom: 20px;
+    float: right;
+}
+
+.bB{
+    float: right;
+}
+.btn{
+    background-color: orangered;
+    color: white;
+}
+.btn:hover{
+    background-color: rgba(255, 68, 0, 0.800);
+    transition-duration: 0.2s;
 }

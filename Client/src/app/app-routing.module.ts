@@ -12,6 +12,7 @@ import { IngredientsComponent } from './categories/ingredients/ingredients.compo
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RecipeAddComponent } from './categories/recipes/recipe-add/recipe-add.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
@@ -29,6 +30,7 @@ const routes: Routes = [
       {path: 'categories/:categoryId/:recipeId', component: IngredientsComponent},
       {path: 'recipes', component: RecipeListComponent},
       {path: 'recipe-add/:categoryId', component: RecipeAddComponent},
+      {path: 'about', component: AboutComponent}
     ]
   },  
   {path: '**', component: LoginComponent, pathMatch: 'full'},
