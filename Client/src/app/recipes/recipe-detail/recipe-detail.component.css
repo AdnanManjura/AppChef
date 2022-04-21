@@ -1,0 +1,66 @@
+.desc {
+    border-style: solid;
+    border-color: grey;
+    width: 100%;
+    border-width: thin;
+    height: 80px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.card-img-wrapper {
+    width: 49%;
+}
+
+.card-img-top {
+    height: 380px;
+}
+
+.ingI {
+    width: 49%;
+    float: right;
+}
+
+table {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+td,
+th {
+    text-align: center;
+    padding: 8px;
+}
+
+th {
+    border-bottom: 1px solid grey;
+}
+
+.totP {
+    width: 78%;
+    margin-bottom: 20px;
+    border-width: thin;
+    text-align: right;
+    margin-right: 5px;
+}
+
+.price {
+    width: 20%;
+    margin-bottom: 20px;
+    float: right;
+}
+
+.bB {
+    float: right;
+}
+
+.btn {
+    background-color: orangered;
+    color: white;
+}
+
+.btn:hover {
+    background-color: rgba(255, 68, 0, 0.800);
+    transition-duration: 0.2s;
+}

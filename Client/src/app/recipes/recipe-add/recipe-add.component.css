@@ -1,0 +1,78 @@
+.inputs {
+    width: 49%;
+    margin-bottom: 20px;
+}
+
+.inputs1 {
+    height: 50px;
+}
+
+.rData {
+    float: right;
+    width: 49%;
+}
+
+table {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+td,
+th {
+    text-align: center;
+    padding: 8px;
+}
+
+.addMoreI {
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 25px;
+    background-color: white;
+    color: orangered;
+    border: 1.5px solid orangered;
+    border-radius: 3px;
+}
+
+.addMoreI:hover {
+    background-color: orangered;
+    color: white;
+    transition-duration: 0.4s;
+    border-radius: 3px;
+}
+
+th {
+    border-bottom: 1px solid grey;
+}
+
+.totP {
+    width: 80%;
+    margin-bottom: 20px;
+    border-width: thin;
+    text-align: right;
+    margin-right: 5px;
+}
+
+.price {
+    width: 19%;
+    margin-bottom: 20px;
+    float: right;
+}
+
+.qInput {
+    width: 40%;
+}
+
+.bB {
+    float: right;
+}
+
+.btn {
+    background-color: orangered;
+    color: white;
+}
+
+.btn:hover {
+    background-color: rgba(255, 68, 0, 0.800);
+    transition-duration: 0.2s;
+}

@@ -1,0 +1,31 @@
+.container {
+    margin: 10px;
+    border-style: solid;
+    background-color: white;
+    width: 90%;
+    height: 120px;
+}
+
+.container1 {
+    width: 75%;
+    margin-top: 10px;
+}
+
+.container2 {
+    float: right;
+    width: 25%;
+}
+
+.container3 {
+    margin-top: 10px;
+}
+
+.container4 {
+    float: right;
+}
+
+img {
+    margin-top: 7px;
+    height: 100px;
+    width: 100px;
+}
