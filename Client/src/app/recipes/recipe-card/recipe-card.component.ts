@@ -20,10 +20,7 @@ export class RecipeCardComponent implements OnInit {
   categoryId: number;
 
   constructor(
-    private recipeService: RecipesService,
-    private recipeDetailService: RecipeDetailsService,
     private route: ActivatedRoute,
-    private ingredientService: IngredientsService,
     private categoryService: CategoriesService) {
     this.categoryId = this.route.snapshot.paramMap.get('categoryId') as unknown as number;
   }

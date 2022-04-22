@@ -12,7 +12,10 @@ import { CategoriesService } from 'src/app/_services/categories.service';
 export class CategoryListComponent implements OnInit {
   categories: Category[];
 
-  constructor(public accountService: AccountService, private categoryService: CategoriesService, private route: ActivatedRoute) { }
+  constructor(
+    public accountService: AccountService, 
+    private categoryService: CategoriesService, 
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.loadCategories();
@@ -23,6 +26,4 @@ export class CategoryListComponent implements OnInit {
       this.categories = categories;
     })
   }
-  
-
 }

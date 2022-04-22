@@ -7,15 +7,15 @@ import { Member } from '../_models/member';
   providedIn: 'root'
 })
 export class MembersService {
-  baseUrl = environment.apiUrl;
+  baseUrl = environment.apiUrl + 'users/';
 
   constructor(private http: HttpClient) { }
 
   getMembers() {
-    return this.http.get<Member[]>(this.baseUrl + 'users');
+    return this.http.get<Member[]>(this.baseUrl);
   }
 
   getMember(id: number) {
-    return this.http.get<Member>(this.baseUrl + 'users/' + id);
+    return this.http.get<Member>(this.baseUrl + id);
   }
 }

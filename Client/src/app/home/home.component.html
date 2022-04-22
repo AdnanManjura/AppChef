@@ -1,32 +1,16 @@
-<div class="mainTitle">
-    <h1 class="mTitle">App<span style="color:orange">Chef</span></h1>
+<h1><strong>App<span>Chef</span></strong></h1>
+<div class="cont">
+    <button type="button" class="btn btn2"
+        *ngIf="(accountService.currentUser$ | async) as user"><strong>Homepage</strong></button>
 
-    <div class="mmenu2">
-        <button type="button" class="btn mainB" *ngIf="(accountService.currentUser$ | async) as user">
+    <div class="cont2">
+        <button type="button" class="btn btn2" *ngIf="(accountService.currentUser$ | async) as user">
             <div class="dropdown" dropdown>
-                <a class="dropdown-toggle text-light" dropdownToggle>Main menu</a>
-                <div class="dropdown-menu mt-2" *dropdownMenu>
-                    <button type="button" routerLink="/categories" class="btn"><strong>Homepage</strong></button>
-                    <div class="dropdown-divider"></div>
-                    <button type="button" routerLink="/members" class="btn"><strong>Members</strong></button>
-                    <div class="dropdown-divider"></div>
-                    <button type="button" routerLink="/recipes" class="btn"><strong>Recipes</strong></button>
+                <a class="dropdown-toggle" dropdownToggle><strong>Hi, {{user.username}}!</strong></a>
+                <div class="dropdown-menu dropdown-menu-right" *dropdownMenu>
+                    <button type="button" class="btn" (click)="logout()" routerLink="/"><strong>Logout</strong></button>
                 </div>
             </div>
         </button>
-        <div class="mmenu">
-            <button type="button" class="btn mainB" *ngIf="(accountService.currentUser$ | async) as user">
-                <div class="dropdown" dropdown>
-                    <a class="dropdown-toggle text-light" dropdownToggle>Hi, {{user.username | titlecase}}!</a>
-                    <div class="dropdown-menu mt-2" *dropdownMenu >
-                        <button class="btn" routerLink="/members"><strong>My profile</strong></button>
-                        <div class="dropdown-divider"></div>
-                        <button type="button" class="btn"><strong>About</strong></button>
-                        <div class="dropdown-divider"></div>
-                        <button type="button" class="btn" (click)="logout()" routerLink="/"><strong>Logout</strong></button>
-                    </div>
-                </div>
-            </button>
-        </div>
     </div>
 </div>

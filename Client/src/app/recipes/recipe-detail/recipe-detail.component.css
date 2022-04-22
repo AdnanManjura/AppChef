@@ -27,8 +27,7 @@ table {
     width: 100%;
 }
 
-td,
-th {
+td, th {
     text-align: center;
     padding: 8px;
 }
@@ -53,6 +52,7 @@ th {
 
 .bB {
     float: right;
+    margin-top: 25px;
 }
 
 .btn {

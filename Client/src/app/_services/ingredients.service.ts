@@ -7,16 +7,15 @@ import { Ingredient } from '../_models/ingredient';
   providedIn: 'root'
 })
 export class IngredientsService {
-  baseUrl=environment.apiUrl;
+  baseUrl=environment.apiUrl + 'ingredients/';
 
   constructor(private http: HttpClient) { }
 
   getIngredients(){
-    return this.http.get<Ingredient[]>(this.baseUrl + 'ingredients');
+    return this.http.get<Ingredient[]>(this.baseUrl);
   }
 
   getIngredient(id: number){
-    return this.http.get<Ingredient>(this.baseUrl + 'ingredients/' + id);
+    return this.http.get<Ingredient>(this.baseUrl + id);
   }
-
 }

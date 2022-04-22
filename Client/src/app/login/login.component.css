@@ -1,28 +1,11 @@
-.dropdown-toggle, .dropdown-item{
-    cursor: pointer;
-}
-
-.mmenu{
-    float: right;
-}
-
-.mmenu2{
-    float: left;
-}
-
-.mainTitle{
-    float: center;
-}
-
-.button1{
-    background-color: #f44336;
-}
-
-.form-control text-center{
-    width: 20px;
+.container{
+    text-align: center;
+    margin-top: 50px;
 }
 
 .iNputs{
+    margin-top: 20px;
+    margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
     width: 450px;
@@ -32,4 +15,12 @@
 
 span{
     color: orange;
+}
+
+.container3{
+    margin-top: 20px;
+}
+
+a{
+    text-decoration: none;
 }

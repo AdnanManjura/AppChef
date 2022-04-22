@@ -11,18 +11,38 @@
     transition-timing-function: ease-out;
 }
 
-.card-img-wrapper{
+.card-img-wrapper {
     overflow: hidden;
 }
-.btn{
+
+.btn {
     background-color: orangered;
     color: white;
 }
-.btn:hover{
+
+.btn:hover {
     background-color: rgba(255, 68, 0, 0.800);
     transition-duration: 0.2s;
 }
-.card{
+
+.card {
     margin-top: 10px;
     margin-bottom: 10px;
+    background-color: rgb(255, 182, 182);
+}
+
+.container {
+    width: 34%;
+    float: right;
+}
+
+.cName {
+    width: 70%;
+    float: left;
+}
+
+.moreB {
+    width: 30%;
+    float: right;
+    margin-right: 0px;
 }

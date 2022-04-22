@@ -8,24 +8,27 @@ import { map, ReplaySubject } from 'rxjs';
   providedIn: 'root'
 })
 export class RecipesService {
-  baseUrl = environment.apiUrl;
+  baseUrl = environment.apiUrl + 'recipes/';
   private currentRecipeSource = new ReplaySubject<Recipe>(1);
 
   constructor(private http: HttpClient) { }
 
   getRecipes() {
-    return this.http.get<Recipe[]>(this.baseUrl + 'recipes');
+    return this.http.get<Recipe[]>(this.baseUrl);
   }
+  
   getRecipe(id: number) {
-    return this.http.get<Recipe>(this.baseUrl + 'recipes/' + id);
+    return this.http.get<Recipe>(this.baseUrl + id);
   }
-  getRecipesByCategory(id:number){
-    return this.http.get<Recipe[]>(this.baseUrl+'recipes/getrecipesbycategory/'+id);
+
+  getRecipesByCategory(id: number) {
+    return this.http.get<Recipe[]>(this.baseUrl + 'getrecipes/' + id);
   }
-  addRecipe(model: any){
-    return this.http.post(this.baseUrl + 'recipes/addRecipe', model).pipe(
+
+  addRecipe(model: any) {
+    return this.http.post(this.baseUrl + 'addRecipe', model).pipe(
       map((recipe: Recipe) => {
-        if(recipe){
+        if (recipe) {
           localStorage.setItem('recipe', JSON.stringify(recipe));
           this.currentRecipeSource.next(recipe);
         }

@@ -1,15 +1,11 @@
 <app-home></app-home>
-<br>
-<h3 *ngIf="category">{{category.categoryName}} recipes</h3>
-
-<button class="addNewR btn-lg" *ngIf="category" routerLink="/recipe-add/{{category.id}}">Add new
+<h3 *ngIf="category">{{category.name}} recipes</h3>
+<button class="addNewR btn-lg" *ngIf="category" routerLink="/recipe/add/{{category.id}}">Add new
   recipe</button>
-
 <form>
   <input type="text" placeholder="Search.." name="search" class="sRI form-inline">
   <button class="button button1" type="submit">Search</button>
 </form>
-
 <div class="con">
   <div class="con2">
     <form class="sF">
@@ -22,10 +18,7 @@
   </div>
   <p class="lR">Latest recipes in our app</p>
 </div>
-
-<app-recipes></app-recipes>
-
-<br>
+<app-recipe-list></app-recipe-list>
 <div class="bB">
   <button class="btn" onclick="history.back()">Back</button>
 </div>

@@ -1,19 +1,33 @@
-.container{
-    background-color:rgb(250, 175, 84); 
+.container {
+    background-color: rgb(250, 175, 84);
     overflow: scroll;
     overflow-x: hidden;
     overflow-y: scroll;
-    height: 440px;
+    height: 515 px;
+    margin-bottom: 10px;
 }
-.btLM{
+
+.btLM {
     margin-bottom: 10px;
     text-align: center;
 }
-.btn{
+
+.btn {
     background-color: orangered;
     color: white;
 }
-.btn:hover{
+
+.btn:hover {
     background-color: rgba(255, 68, 0, 0.800);
     transition-duration: 0.2s;
+}
+
+.row{
+    margin: 0px;
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+}
+
+.col-2{
+    width: 100%;
 }

@@ -7,19 +7,11 @@ import { RecipeDetail } from '../_models/recipeDetail';
   providedIn: 'root'
 })
 export class RecipeDetailsService {
-baseUrl = environment.apiUrl;
+baseUrl = environment.apiUrl + 'recipedetails/';
 
   constructor(private http: HttpClient) { }
 
-  getRecipeDetails(){
-    return this.http.get<RecipeDetail[]>(this.baseUrl + 'recipedetails');
-  }
-
-  getRecipeDetail(id: number){
-    return this.http.get<RecipeDetail>(this.baseUrl + 'recipedetails' + id);
-  }
-
   getIngredientsByRecipe(id: number){
-    return this.http.get<RecipeDetail[]>(this.baseUrl + 'recipedetails/getingredientsbyrecipe/' + id);
+    return this.http.get<RecipeDetail[]>(this.baseUrl + 'getingredients/' + id);
   }
 }

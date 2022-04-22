@@ -7,15 +7,15 @@ import { Category } from '../_models/category';
   providedIn: 'root'
 })
 export class CategoriesService {
-  baseUrl = environment.apiUrl;
+  baseUrl = environment.apiUrl + 'categories/';
 
   constructor(private http: HttpClient) { }
 
   getCategories() {
-    return this.http.get<Category[]>(this.baseUrl + 'categories');
+    return this.http.get<Category[]>(this.baseUrl);
   }
 
   getCategory(categoryId: number) {
-    return this.http.get<Category>(this.baseUrl + 'categories/' + categoryId);
+    return this.http.get<Category>(this.baseUrl + categoryId);
   }
 }

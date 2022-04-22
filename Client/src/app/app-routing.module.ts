@@ -2,17 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CategoryDetailComponent } from './categories/category-detail/category-detail.component';
 import { CategoryListComponent } from './categories/category-list/category-list.component';
-import { RecipesComponent } from './categories/recipes/recipes.component';
-import { RecipeListComponent } from './categories/recipes/recipe-list/recipe-list.component';
+import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './_guards/auth.guard';
-import { MemberListComponent } from './members/member-list/member-list.component';
-import { MemberDetailComponent } from './members/member-detail/member-detail.component';
-import { IngredientsComponent } from './categories/ingredients/ingredients.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { RecipeAddComponent } from './categories/recipes/recipe-add/recipe-add.component';
-import { AboutComponent } from './about/about.component';
+import { RecipeAddComponent } from './recipes/recipe-add/recipe-add.component';
+import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
@@ -23,14 +19,11 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {path: 'home', component: HomeComponent},
-      {path: 'members', component: MemberListComponent, canActivate: [AuthGuard]},
-      {path: 'members/:memberId', component: MemberDetailComponent},
       {path: 'categories', component: CategoryListComponent},
       {path: 'categories/:categoryId', component: CategoryDetailComponent},
-      {path: 'categories/:categoryId/:recipeId', component: IngredientsComponent},
+      {path: 'categories/:categoryId/:recipeId', component: RecipeDetailComponent},
       {path: 'recipes', component: RecipeListComponent},
-      {path: 'recipe-add/:categoryId', component: RecipeAddComponent},
-      {path: 'about', component: AboutComponent}
+      {path: 'recipe/add/:categoryId', component: RecipeAddComponent},
     ]
   },  
   {path: '**', component: LoginComponent, pathMatch: 'full'},

@@ -2,8 +2,8 @@ import { Category } from './category';
 
 export interface Recipe {
     id: number;
-    recipeName: string;
-    recipePhoto: string;
-    recipeDecsription: string;
+    name: string;
+    photo: string;
+    decsription: string;
     categories: Category[];
 }

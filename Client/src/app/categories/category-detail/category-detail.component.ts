@@ -13,7 +13,9 @@ export class CategoryDetailComponent implements OnInit {
   category: Category;
   id: number
 
-  constructor(private categoryService: CategoriesService, private route: ActivatedRoute) {
+  constructor(
+    private categoryService: CategoriesService, 
+    private route: ActivatedRoute) {
     this.id = this.route.snapshot.paramMap.get('categoryId') as unknown as number;
   }
   ngOnInit(): void {

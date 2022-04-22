@@ -12,22 +12,21 @@ import { MembersService } from 'src/app/_services/members.service';
 })
 export class HomeComponent implements OnInit {
   member: Member;
-  mId: number;
- 
+  memberId: number;
+
   constructor(
-    public accountService: AccountService, 
+    public accountService: AccountService,
     private router: Router,
     private route: ActivatedRoute,
-    private memberService: MembersService) { 
-      this.mId = this.route.snapshot.paramMap.get("memberId") as unknown as number
-    }
-
-  ngOnInit(): void {
-   //this.loadMember(this.mId);
+    private memberService: MembersService) {
+    this.memberId = this.route.snapshot.paramMap.get('memberId') as unknown as number;
   }
 
-  loadMember(mId) {
-    this.memberService.getMember(mId).subscribe(member => {
+  ngOnInit(): void {
+  }
+
+  loadMember(memberId) {
+    this.memberService.getMember(memberId).subscribe(member => {
       this.member = member;
     })
   }

@@ -1,36 +1,19 @@
-<body class="text-center">
-    <div class="container">
-        <main class="form-signin">
-
-            <h1 class="mt-5">App<span>Chef</span></h1>
-            <hr>
-            <form *ngIf="(accountService.currentUser$ | async) === null" #loginForm="ngForm" (ngSubmit)="login()"
-                autocomplete="off">
-                <div class="container">
-                    <input name="username" [(ngModel)]="model.username" class="iNputs form-control"
-                        type="text" placeholder="Please enter your username">
-                    <br>
-                    <input name="password" [(ngModel)]="model.password" class="iNputs form-control"
-                        type="password" placeholder="Please enter your password">
-                    <br>
-                    <input name="remember" type="checkbox"> Remember me
-                    <span class="psw">
-                        <a href="#">Forgot password?</a>
-                    </span>
-                    <br>
-                    <br>
-                </div>
-                <button class="btn btn-outline-success" type="submit">LOGIN</button>
-                <br>
-                <br>
-            </form>
-        </main>
-    </div>
-
-    <body class="text-center" *ngIf="(accountService.currentUser$ | async) === null">
-        <div>
+<div class="container">
+    <h1><strong>App<span>Chef</span></strong></h1>
+    <hr>
+    <form *ngIf="(accountService.currentUser$ | async) === null" #loginForm="ngForm" (ngSubmit)="login()"
+        autocomplete="off">
+        <div class="container2">
+            <input name="username" [(ngModel)]="model.username" class="iNputs form-control" type="text"
+                placeholder="Please enter your username">
+            <input name="password" [(ngModel)]="model.password" class="iNputs form-control" type="password"
+                placeholder="Please enter your password">
+        </div>
+        <button class="btn btn-outline-success" type="submit">LOGIN</button>
+    </form>
+    <form *ngIf="(accountService.currentUser$ | async) === null">
+        <div class="container3">
             <label>Don't have an account?
-
                 <a href="#" (click)="registerToggle()" routerLink="/register">Sign up</a>
             </label>
         </div>
@@ -41,5 +24,5 @@
                 </div>
             </div>
         </div>
-    </body>
-</body>
+    </form>
+</div>

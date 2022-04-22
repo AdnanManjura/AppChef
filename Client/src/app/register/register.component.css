@@ -1,14 +1,23 @@
+.container{
+    margin-top: 50px;
+    text-align: center;
+}
+
+span{
+    color: orange;
+}
+
 .iNputs{
+    margin-top: 20px;
+    margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
     width: 450px;
     height: 40px;
+    text-align: center;
 }
 
 .btn{
     margin-left: 10px;
     margin-right: 10px;
-}
-.logo{
-    margin-top: 100px;
 }
