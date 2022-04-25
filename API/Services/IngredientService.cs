@@ -16,12 +16,12 @@ namespace API.Services
 
         public async Task<IEnumerable<Ingredient>> GetIngredients()
         {
-            return await _context.Ingredients.ToListAsync();
+            return await _context.Ingredient.ToListAsync();
         }
 
-        public async Task<ActionResult<Ingredient>> GetIngredient(int ingredientId)
+        public async Task<ActionResult<Ingredient>> GetIngredient(int id)
         {
-           return await _context.Ingredients.FindAsync(ingredientId);
+           return await _context.Ingredient.FindAsync(id);
         }
     }
 }

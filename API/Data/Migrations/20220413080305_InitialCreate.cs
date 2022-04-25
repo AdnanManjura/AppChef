@@ -10,33 +10,33 @@ namespace API.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Categories",
+                name: "Category",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", nullable: true),
-                    Photo = table.Column<string>(type: "TEXT", nullable: true)
+                    CategoryName = table.Column<string>(type: "TEXT", nullable: true),
+                    CategoryPhoto = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Categories", x => x.Id);
+                    table.PrimaryKey("PK_Category", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Ingredients",
+                name: "Ingredient",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", nullable: true),
+                    IngredientName = table.Column<string>(type: "TEXT", nullable: true),
                     PurchaseQuantity = table.Column<float>(type: "REAL", nullable: false),
                     PurchaseMeasureUnit = table.Column<int>(type: "INTEGER", nullable: false),
                     Price = table.Column<float>(type: "REAL", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Ingredients", x => x.Id);
+                    table.PrimaryKey("PK_Ingredient", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -55,23 +55,23 @@ namespace API.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Recipes",
+                name: "Recipe",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", nullable: true),
-                    Photo = table.Column<string>(type: "TEXT", nullable: true),
+                    RecipeName = table.Column<string>(type: "TEXT", nullable: true),
+                    RecipePhoto = table.Column<string>(type: "TEXT", nullable: true),
                     Description = table.Column<string>(type: "TEXT", nullable: true),
                     CategoryId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Recipes", x => x.Id);
+                    table.PrimaryKey("PK_Recipe", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Recipes_Categories_CategoryId",
+                        name: "FK_Recipe_Category_CategoryId",
                         column: x => x.CategoryId,
-                        principalTable: "Categories",
+                        principalTable: "Category",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -89,28 +89,28 @@ namespace API.Migrations
                 {
                     table.PrimaryKey("PK_RecipeDetails", x => new { x.IngredientId, x.RecipeId });
                     table.ForeignKey(
-                        name: "FK_RecipeDetails_Ingredients_IngredientId",
+                        name: "FK_RecipeDetails_Ingredient_IngredientId",
                         column: x => x.IngredientId,
-                        principalTable: "Ingredients",
+                        principalTable: "Ingredient",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_RecipeDetails_Recipes_RecipeId",
+                        name: "FK_RecipeDetails_Recipe_RecipeId",
                         column: x => x.RecipeId,
-                        principalTable: "Recipes",
+                        principalTable: "Recipe",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Recipe_CategoryId",
+                table: "Recipe",
+                column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_RecipeDetails_RecipeId",
                 table: "RecipeDetails",
                 column: "RecipeId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Recipes_CategoryId",
-                table: "Recipes",
-                column: "CategoryId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -122,13 +122,13 @@ namespace API.Migrations
                 name: "Users");
 
             migrationBuilder.DropTable(
-                name: "Ingredients");
+                name: "Ingredient");
 
             migrationBuilder.DropTable(
-                name: "Recipes");
+                name: "Recipe");
 
             migrationBuilder.DropTable(
-                name: "Categories");
+                name: "Category");
         }
     }
 }

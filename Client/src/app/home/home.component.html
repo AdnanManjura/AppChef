@@ -1,7 +1,7 @@
 <h1><strong>App<span>Chef</span></strong></h1>
 <div class="cont">
     <button type="button" class="btn btn2"
-        *ngIf="(accountService.currentUser$ | async) as user"><strong>Homepage</strong></button>
+        *ngIf="(accountService.currentUser$ | async) as user" routerLink="/categories"><strong>Homepage</strong></button>
 
     <div class="cont2">
         <button type="button" class="btn btn2" *ngIf="(accountService.currentUser$ | async) as user">

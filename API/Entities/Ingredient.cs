@@ -1,12 +1,14 @@
 using API.Enums;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace API.Entities
 {
+    [Table("Ingredient")]
     public class Ingredient
     {
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        public string IngredientName { get; set; }
 
         public float PurchaseQuantity { get; set; }
 
@@ -14,7 +16,7 @@ namespace API.Entities
 
         public float Price { get; set; }
 
-        public List<RecipeDetail> RecipeDetails { get; set; }
+        public List<RecipeDetails> RecipeDetailsList { get; set; }
 
     }
 }

@@ -18,19 +18,18 @@ namespace API.Controllers
             _ingredientService = ingredientService;
         }
         [HttpGet]
-        public async Task<IActionResult> GetIngredients()
+        public async Task<ActionResult<IEnumerable<Ingredient>>> GetIngredients()
         {
             var ingredients = await _ingredientService.GetIngredients();
             return Ok(ingredients);
         }
-        [HttpGet("{ingredientId}")]
-        public async Task<IActionResult> GetIngredient(int ingredientId)
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Ingredient>> GetIngredient(int id)
         {
-            if (ingredientId < 1)
+            if (id < 1)
                 return BadRequest();
 
-            var ingredient = await _ingredientService.GetIngredient(ingredientId); 
-            return Ok(ingredient);
+            return await _ingredientService.GetIngredient(id);
         }
     }
 }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { AccountService } from '../_services/account.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Member } from 'src/app/_models/member';

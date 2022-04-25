@@ -1,5 +1,5 @@
 <app-home></app-home>
-<h3 *ngIf="category">{{category.name}} recipes</h3>
+<h3 *ngIf="category">{{category.categoryName}} recipes</h3>
 <button class="addNewR btn-lg" *ngIf="category" routerLink="/recipe/add/{{category.id}}">Add new
   recipe</button>
 <form>

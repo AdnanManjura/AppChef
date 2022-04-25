@@ -23,7 +23,8 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetRecipes()
+        [AllowAnonymous]
+        public async Task<ActionResult<IEnumerable<Recipe>>> GetRecipes()
         {
             var recipes = await _recipeService.GetRecipes();
             return Ok(recipes);
@@ -32,26 +33,45 @@ namespace API.Controllers
         [HttpPost("addRecipe")]
         public async Task<ActionResult<Recipe>> AddRecipe(Recipe recipeR)
         {
-            var recipe = await _recipeService.AddRecipe(recipeR); 
-            return Ok(recipe);
+            var recipe = new Recipe
+            {
+                RecipeName = recipeR.RecipeName,
+                RecipePhoto = recipeR.RecipePhoto,
+                Description = recipeR.Description,
+                CategoryId = recipeR.CategoryId,
+                Category = recipeR.Category,
+                RecipeDetailsList = recipeR.RecipeDetailsList
+            };
+            _context.Recipe.Add(recipe);
+            await _context.SaveChangesAsync();
+
+            return recipe;
+            // return new RecipeDto
+            // {
+            //     RecipeName = recipe.RecipeName,
+            //     RecipePhoto = recipe.RecipePhoto,
+            //     Description = recipe.Description,
+            //     CategoryId = recipe.CategoryId,
+            //     Category = recipe.Category,
+            //     RecipeDetailsList = recipe.RecipeDetailsList
+            // };
+
         }
 
-        [HttpGet("{recipeId}")]
-        public async Task<IActionResult> GetRecipe(int recipeId)
+        [HttpGet("{RecipeId}")]
+        public async Task<ActionResult<Recipe>> GetRecipe(int recipeId)
         {
             if (recipeId < 1)
                 return BadRequest();
 
-            var recipe = await _recipeService.GetRecipe(recipeId); 
-            return Ok(recipe);
+            return await _recipeService.GetRecipe(recipeId);
         }
 
         [HttpGet]
-        [Route("getrecipes/{categoryId}")]
-        public async Task<IActionResult> GetRecipes(int categoryId)
+        [Route("getrecipesbycategory/{categoryId}")]
+        public async Task<IEnumerable<Recipe>> GetRecipesByCategory(int categoryId)
         {
-            var recipes = await _recipeService.GetRecipes(categoryId); 
-            return Ok(recipes);
+            return await _recipeService.GetRecipesByCategory(categoryId);
         }
     }
 }

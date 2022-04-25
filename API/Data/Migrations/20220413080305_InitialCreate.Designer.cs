@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220418151617_InitialCreate")]
+    [Migration("20220413080305_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -19,21 +19,41 @@ namespace API.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.3");
 
+            modelBuilder.Entity("API.Entities.AppUser", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<byte[]>("PasswordHash")
+                        .HasColumnType("BLOB");
+
+                    b.Property<byte[]>("PasswordSalt")
+                        .HasColumnType("BLOB");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+                });
+
             modelBuilder.Entity("API.Entities.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("CategoryName")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Photo")
+                    b.Property<string>("CategoryPhoto")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Category");
                 });
 
             modelBuilder.Entity("API.Entities.Ingredient", b =>
@@ -42,7 +62,7 @@ namespace API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("IngredientName")
                         .HasColumnType("TEXT");
 
                     b.Property<float>("Price")
@@ -56,7 +76,7 @@ namespace API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Ingredients");
+                    b.ToTable("Ingredient");
                 });
 
             modelBuilder.Entity("API.Entities.Recipe", b =>
@@ -71,20 +91,20 @@ namespace API.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("RecipeName")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Photo")
+                    b.Property<string>("RecipePhoto")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Recipes");
+                    b.ToTable("Recipe");
                 });
 
-            modelBuilder.Entity("API.Entities.RecipeDetail", b =>
+            modelBuilder.Entity("API.Entities.RecipeDetails", b =>
                 {
                     b.Property<int>("IngredientId")
                         .HasColumnType("INTEGER");
@@ -105,26 +125,6 @@ namespace API.Migrations
                     b.ToTable("RecipeDetails");
                 });
 
-            modelBuilder.Entity("API.Entities.User", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<byte[]>("PasswordHash")
-                        .HasColumnType("BLOB");
-
-                    b.Property<byte[]>("PasswordSalt")
-                        .HasColumnType("BLOB");
-
-                    b.Property<string>("UserName")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Users");
-                });
-
             modelBuilder.Entity("API.Entities.Recipe", b =>
                 {
                     b.HasOne("API.Entities.Category", "Category")
@@ -136,16 +136,16 @@ namespace API.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("API.Entities.RecipeDetail", b =>
+            modelBuilder.Entity("API.Entities.RecipeDetails", b =>
                 {
                     b.HasOne("API.Entities.Ingredient", "Ingredient")
-                        .WithMany("RecipeDetails")
+                        .WithMany("RecipeDetailsList")
                         .HasForeignKey("IngredientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("API.Entities.Recipe", "Recipe")
-                        .WithMany("RecipeDetails")
+                        .WithMany("RecipeDetailsList")
                         .HasForeignKey("RecipeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -162,12 +162,12 @@ namespace API.Migrations
 
             modelBuilder.Entity("API.Entities.Ingredient", b =>
                 {
-                    b.Navigation("RecipeDetails");
+                    b.Navigation("RecipeDetailsList");
                 });
 
             modelBuilder.Entity("API.Entities.Recipe", b =>
                 {
-                    b.Navigation("RecipeDetails");
+                    b.Navigation("RecipeDetailsList");
                 });
 #pragma warning restore 612, 618
         }

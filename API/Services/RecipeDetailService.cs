@@ -17,26 +17,24 @@ namespace API.Services
             _context = context;
         }
 
-        public async Task<IEnumerable<RecipeDetail>> GetRecipeDetails()
+        public async Task<ActionResult<IEnumerable<RecipeDetails>>> GetRecipeDetails()
         {
-            return await _context.RecipeDetails
-            .Include(x => x.Ingredient)
-            .ToListAsync();
+            return await _context.RecipeDetails.Include(x => x.Ingredient).ToListAsync();
         }
 
-        public async Task<IEnumerable<RecipeDetailDto>> GetIngredients(int recipeId)
+        public async Task<IEnumerable<RecipeDetailsDto>> GetIngredientsByRecipe(int recipeId)
         {
             return await _context.RecipeDetails
                 .Include(x => x.Ingredient)
-                .Where(y => y.RecipeId == recipeId)
-                .Select(z => new RecipeDetailDto(){
-                    RecipeId = z.RecipeId,
-                    IngredientId = z.IngredientId,
-                    Quantity = z.Quantity,
-                    MeasureUnit = z.MeasureUnit,
-                    Ingredient = z.Ingredient,
-                    Recipe = z.Recipe,
-                    Cost = CostCalculator.CalculateRecipeDetailCost(z.Quantity, z.MeasureUnit, z.Ingredient.PurchaseQuantity, z.Ingredient.Price, z.Ingredient.PurchaseMeasureUnit),
+                .Where(u => u.RecipeId == recipeId)
+                .Select(x => new RecipeDetailsDto(){
+                    RecipeId = x.RecipeId,
+                    IngredientId = x.IngredientId,
+                    Quantity = x.Quantity,
+                    MeasureUnit = x.MeasureUnit,
+                    Ingredient = x.Ingredient,
+                    Recipe = x.Recipe,
+                    Cost = CostCalculator.CalculateRecipeDetailCost(x.Quantity, x.MeasureUnit, x.Ingredient.PurchaseQuantity, x.Ingredient.Price, x.Ingredient.PurchaseMeasureUnit),
                 })
                 .ToListAsync();
         }

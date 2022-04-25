@@ -18,13 +18,17 @@ namespace API.Controllers
         {
             _recipeDetailService = recipeDetailService;
         }
-        
         [HttpGet]
-        [Route("getingredients/{recipeId}")]
-        public async Task<IActionResult> GetIngredients(int recipeId)
+        public async Task<ActionResult<IEnumerable<RecipeDetails>>> GetRecipeDetails()
         {
-            var recipeDetail = await _recipeDetailService.GetIngredients(recipeId);
-            return Ok(recipeDetail);
+            return await _recipeDetailService.GetRecipeDetails();
+        }
+
+        [HttpGet]
+        [Route("getingredientsbyrecipe/{recipeId}")]
+        public async Task<IActionResult> GetIngredientsByRecipe(int recipeId)
+        {
+            return Ok(await _recipeDetailService.GetIngredientsByRecipe(recipeId));
         }
     }
 }

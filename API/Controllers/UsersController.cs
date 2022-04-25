@@ -13,27 +13,24 @@ namespace API.Controllers
     
     public class UsersController : BaseApiController
     {
-        private readonly IUserService _userService;
-        public UsersController(IUserService userService)
+        private readonly IUserService _UserService;
+        public UsersController(IUserService UserService)
         {
-            _userService = userService;
+            _UserService = UserService;
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetUsers()
-        {
-            var users = await _userService.GetUsers(); 
-            return Ok(users);
+        public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers(){
+            return await _UserService.GetUsers();
         }
 
-        [HttpGet("{userId}")]
-        public async Task<IActionResult> GetUser(int userId)
+        [HttpGet("{id}")]
+        public async Task<ActionResult<AppUser>> GetUser(int id)
         {
-            if(userId < 1)
+            if(id < 1)
                 return BadRequest();
             
-            var user = await _userService.GetUser(userId); 
-            return Ok(user);
+            return await _UserService.GetUser(id);
         }
     }
 }

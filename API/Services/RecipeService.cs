@@ -11,39 +11,22 @@ namespace API.Services
         private readonly DataContext _context;
         public RecipeService(DataContext context)
         {
-            _context = context;
+           _context = context;
         }
 
         public async Task<ActionResult<Recipe>> GetRecipe(int recipeId)
         {
-            return await _context.Recipes.FindAsync(recipeId);
+            return await _context.Recipe.FindAsync(recipeId);
         }
-
+       
         public async Task<IEnumerable<Recipe>> GetRecipes()
         {
-            return await _context.Recipes.ToListAsync();
+           return await _context.Recipe.ToListAsync();
         }
-
-        public async Task<ActionResult<Recipe>> AddRecipe(Recipe recipeR)
+       
+        public async Task<IEnumerable<Recipe>> GetRecipesByCategory(int categoryId)
         {
-            var recipe = new Recipe
-            {
-                Name = recipeR.Name,
-                Photo = recipeR.Photo,
-                Description = recipeR.Description,
-                CategoryId = recipeR.CategoryId,
-                Category = recipeR.Category,
-                RecipeDetails = recipeR.RecipeDetails
-            };
-            _context.Recipes.Add(recipe);
-            await _context.SaveChangesAsync();
-
-            return recipe;
-        }
-
-        public async Task<IEnumerable<Recipe>> GetRecipes(int categoryId)
-        {
-            return await _context.Recipes.Where(u => u.CategoryId == categoryId).ToListAsync();
+            return await _context.Recipe.Where(u => u.CategoryId == categoryId).ToListAsync();
         }
     }
 }

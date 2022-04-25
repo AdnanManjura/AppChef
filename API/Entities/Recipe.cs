@@ -1,12 +1,16 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace API.Entities
 {
-   public class Recipe
+    [Table("Recipe")]
+
+    public class Recipe
     {
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        public string RecipeName { get; set; }
 
-        public string Photo { get; set; }
+        public string RecipePhoto { get; set; }
 
         public string Description { get; set; }
 
@@ -14,6 +18,6 @@ namespace API.Entities
 
         public Category Category { get; set; }
 
-        public List<RecipeDetail> RecipeDetails { get; set; }
+        public List<RecipeDetails> RecipeDetailsList { get; set; }
     }
 }

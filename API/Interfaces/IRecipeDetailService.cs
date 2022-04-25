@@ -6,7 +6,7 @@ namespace API.Interfaces
 {
     public interface IRecipeDetailService
     {
-        Task<IEnumerable<RecipeDetail>> GetRecipeDetails();
-        Task<IEnumerable<RecipeDetailDto>> GetIngredients(int recipeId);
+        Task<ActionResult<IEnumerable<RecipeDetails>>> GetRecipeDetails();
+        Task<IEnumerable<RecipeDetailsDto>> GetIngredientsByRecipe(int recipeId);
     }
 }

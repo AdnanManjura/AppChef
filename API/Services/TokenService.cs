@@ -28,7 +28,7 @@ namespace API.Services
             _context = context;
         }
 
-        public string CreateToken(User user)
+        public string CreateToken(AppUser user)
         {
             var claims = new List<Claim>
             {

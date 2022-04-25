@@ -1,5 +1,5 @@
 <app-home></app-home>
-<h3 *ngIf="category">Add new recipe into {{category.name}} category!</h3>
+<h3 *ngIf="category">Add new recipe into {{category.categoryName}} category!</h3>
 
 <form #addRecipeForm="ngForm" (ngSubmit)="addRecipe()" autocomplete="off">
     <div class="rData">

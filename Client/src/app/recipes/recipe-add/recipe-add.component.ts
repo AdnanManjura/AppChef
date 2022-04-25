@@ -24,9 +24,7 @@ export class RecipeAddComponent implements OnInit {
     private recipeService: RecipesService,
     private categoryService: CategoriesService,
     private ingredientService: IngredientsService,
-    private router: Router,
-    private route: ActivatedRoute,
-    private toastr: ToastrService) {
+    private route: ActivatedRoute) {
     this.categoryId = this.route.snapshot.paramMap.get('categoryId') as unknown as number;
   }
 
