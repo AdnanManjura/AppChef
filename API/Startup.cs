@@ -28,7 +28,6 @@ namespace API
         {
             _config = config;
         }
-
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -41,7 +40,6 @@ namespace API
             services.AddCors();
             services.AddIdentityServices(_config);
             services.AddSwaggerGen();
-            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,26 +49,15 @@ namespace API
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseHttpsRedirection();
-
             app.UseRouting();
-
             app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200"));
-
             app.UseAuthentication();
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
-
-        //     app.UseSwagger();
-        //     app.UseSwaggerUI(c =>
-        //     {
-        //         c.SwaggerEndPoint("/swagger/v1/swagger.json", "My API V2");
-        //     });
          }
     }
 }

@@ -1,3 +1,4 @@
+using API.DTOs;
 using API.Data;
 using API.Entities;
 using API.Interfaces;
@@ -27,6 +28,23 @@ namespace API.Services
         public async Task<IEnumerable<Recipe>> GetRecipesByCategory(int categoryId)
         {
             return await _context.Recipe.Where(u => u.CategoryId == categoryId).ToListAsync();
+        }
+
+        public async Task<ActionResult<Recipe>> AddRecipe(Recipe recipeR)
+        {
+            var recipe = new Recipe
+            {
+                RecipeName = recipeR.RecipeName,
+                RecipePhoto = recipeR.RecipePhoto,
+                Description = recipeR.Description,
+                CategoryId = recipeR.CategoryId,
+                Category = recipeR.Category,
+                RecipeDetailsList = recipeR.RecipeDetailsList
+            };
+            _context.Recipe.Add(recipe);
+            await _context.SaveChangesAsync();
+
+            return recipe;
         }
     }
 }

@@ -1,6 +1,8 @@
 <div class="container">
-    <div *ngFor="let recipe of recipes" class="container2">
-        <app-recipe-card [recipe]="recipe"></app-recipe-card>
+    <div class="row">
+        <div *ngFor="let recipe of recipes" class="col-2">
+            <app-recipe-card [recipe]="recipe"></app-recipe-card>
+        </div>
     </div>
     <div class="btLM">
         <button class="btn">...</button>

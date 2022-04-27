@@ -2,7 +2,6 @@
 <div class="cont">
     <button type="button" class="btn btn2"
         *ngIf="(accountService.currentUser$ | async) as user" routerLink="/categories"><strong>Homepage</strong></button>
-
     <div class="cont2">
         <button type="button" class="btn btn2" *ngIf="(accountService.currentUser$ | async) as user">
             <div class="dropdown" dropdown>

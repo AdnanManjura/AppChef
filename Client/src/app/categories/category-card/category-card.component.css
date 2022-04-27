@@ -15,6 +15,10 @@
     overflow: hidden;
 }
 
+.card-img-top{
+    height: 150px;
+}
+
 .btn {
     background-color: orangered;
     color: white;

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { Category } from 'src/app/_models/category';
 import { Ingredient } from 'src/app/_models/ingredient';
 import { MeasureUnit } from 'src/app/_models/recipeDetail';
@@ -24,6 +23,7 @@ export class RecipeAddComponent implements OnInit {
     private recipeService: RecipesService,
     private categoryService: CategoriesService,
     private ingredientService: IngredientsService,
+    private router: Router,
     private route: ActivatedRoute) {
     this.categoryId = this.route.snapshot.paramMap.get('categoryId') as unknown as number;
   }

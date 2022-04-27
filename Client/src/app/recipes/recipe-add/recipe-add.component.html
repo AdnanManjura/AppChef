@@ -39,7 +39,7 @@
             placeholder="Please type some description about this recipe..."></textarea>
     </div>
 </form>
-<button class="btn btn-lg" type="submit" (click)="addRecipe()">Add new recipe!</button>
+<button class="btn btn-lg" *ngIf="category" routerLink="/categories/{{category.id}}" type="submit" (click)="addRecipe()">Add new recipe!</button>
 <div class="bB">
     <button class="btn" onclick="history.back()">Back</button>
 </div>

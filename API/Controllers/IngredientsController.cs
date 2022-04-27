@@ -1,12 +1,7 @@
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using API.Data;
 using API.Entities;
 using API.Interfaces;
-using Microsoft.AspNetCore.Authorization;
+using API.DTOs;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
@@ -17,19 +12,21 @@ namespace API.Controllers
         {
             _ingredientService = ingredientService;
         }
+
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Ingredient>>> GetIngredients()
+        public async Task<ActionResult<IEnumerable<IngredientDto>>> GetIngredients()
         {
             var ingredients = await _ingredientService.GetIngredients();
             return Ok(ingredients);
         }
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Ingredient>> GetIngredient(int id)
+        
+        [HttpGet("{ingredientId}")]
+        public async Task<ActionResult<Ingredient>> GetIngredient(int ingredientId)
         {
-            if (id < 1)
+            if (ingredientId < 1)
                 return BadRequest();
 
-            return await _ingredientService.GetIngredient(id);
+            return await _ingredientService.GetIngredient(ingredientId); 
         }
     }
 }

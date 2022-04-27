@@ -12,6 +12,6 @@ baseUrl = environment.apiUrl + 'recipedetails/';
   constructor(private http: HttpClient) { }
 
   getIngredientsByRecipe(id: number){
-    return this.http.get<RecipeDetail[]>(this.baseUrl + 'getingredientsbyrecipe/' + id);
+    return this.http.get<RecipeDetail[]>(this.baseUrl + 'getingredients/' + id);
   }
 }

@@ -1,13 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Category } from 'src/app/_models/category';
-import { Ingredient } from 'src/app/_models/ingredient';
 import { Recipe } from 'src/app/_models/recipe';
-import { RecipeDetail } from 'src/app/_models/recipeDetail';
 import { CategoriesService } from 'src/app/_services/categories.service';
-import { IngredientsService } from 'src/app/_services/ingredients.service';
-import { RecipeDetailsService } from 'src/app/_services/recipeDetails.service';
-import { RecipesService } from 'src/app/_services/recipes.service';
 
 @Component({
   selector: 'app-recipe-card',

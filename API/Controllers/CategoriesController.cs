@@ -1,12 +1,8 @@
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using API.Data;
+using API.DTOs;
 using API.Entities;
 using API.Interfaces;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+
 
 namespace API.Controllers
 {
@@ -20,14 +16,13 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
-        public async Task<ActionResult<IEnumerable<Category>>> GetCategories()
+        public async Task<ActionResult<IEnumerable<CategoryDto>>> GetCategories()
         {
             var categories = await _categoryService.GetCategories();
             return Ok(categories);
         }
 
-        [HttpGet("{CategoryId}")]
+        [HttpGet("{categoryId}")]
         public async Task<ActionResult<Category>> GetCategory(int categoryId)
         {
             if(categoryId < 1)

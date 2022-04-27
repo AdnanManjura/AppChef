@@ -22,7 +22,7 @@ export class RecipesService {
   }
 
   getRecipesByCategory(id: number) {
-    return this.http.get<Recipe[]>(this.baseUrl + 'getrecipesbycategory/' + id);
+    return this.http.get<Recipe[]>(this.baseUrl + 'getrecipes/' + id);
   }
 
   addRecipe(model: any) {

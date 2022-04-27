@@ -1,34 +1,34 @@
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using API.Data;
 using API.Interfaces;
+using API.DTOs;
 using API.Entities;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
     public class RecipeDetailsController : BaseApiController
     {
         private readonly IRecipeDetailService _recipeDetailService;
-
         public RecipeDetailsController(IRecipeDetailService recipeDetailService)
         {
             _recipeDetailService = recipeDetailService;
         }
+        
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<RecipeDetails>>> GetRecipeDetails()
+        public async Task<ActionResult<IEnumerable<RecipeDetailsDto>>> GetRecipeDetails()
         {
-            return await _recipeDetailService.GetRecipeDetails();
+            var recipeDetails = await _recipeDetailService.GetRecipeDetails();
+            return Ok(recipeDetails);
         }
 
         [HttpGet]
-        [Route("getingredientsbyrecipe/{recipeId}")]
+        [Route("getingredients/{recipeId}")]
         public async Task<IActionResult> GetIngredientsByRecipe(int recipeId)
         {
-            return Ok(await _recipeDetailService.GetIngredientsByRecipe(recipeId));
+            if (recipeId < 1)
+                return BadRequest();
+
+            var recipeDetails = await _recipeDetailService.GetIngredientsByRecipe(recipeId);
+            return Ok(recipeDetails);
         }
     }
 }

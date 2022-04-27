@@ -4,6 +4,6 @@ export interface Recipe {
     id: number;
     name: string;
     photo: string;
-    decsription: string;
+    description: string;
     categories: Category[];
 }

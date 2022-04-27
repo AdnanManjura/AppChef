@@ -14,8 +14,4 @@ export class IngredientsService {
   getIngredients(){
     return this.http.get<Ingredient[]>(this.baseUrl);
   }
-
-  getIngredient(id: number){
-    return this.http.get<Ingredient>(this.baseUrl + id);
-  }
 }
