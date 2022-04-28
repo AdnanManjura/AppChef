@@ -17,17 +17,17 @@ namespace API.Services
             _context = context;
         }
 
-        public async Task<ActionResult<IEnumerable<RecipeDetails>>> GetRecipeDetails()
+        public async Task<ActionResult<IEnumerable<RecipeDetail>>> GetRecipeDetails()
         {
             return await _context.RecipeDetails.Include(x => x.Ingredient).ToListAsync();
         }
 
-        public async Task<IEnumerable<RecipeDetailsDto>> GetIngredientsByRecipe(int recipeId)
+        public async Task<IEnumerable<RecipeDetailDto>> GetIngredientsByRecipe(int recipeId)
         {
             return await _context.RecipeDetails
                 .Include(x => x.Ingredient)
                 .Where(u => u.RecipeId == recipeId)
-                .Select(x => new RecipeDetailsDto(){
+                .Select(x => new RecipeDetailDto(){
                     RecipeId = x.RecipeId,
                     IngredientId = x.IngredientId,
                     Quantity = x.Quantity,

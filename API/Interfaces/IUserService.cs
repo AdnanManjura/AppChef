@@ -1,4 +1,3 @@
-using API.Data;
 using API.Entities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,7 +5,7 @@ namespace API.Interfaces
 {
     public interface IUserService
     {
-        Task<ActionResult<IEnumerable<AppUser>>> GetUsers();
-        Task<ActionResult<AppUser>> GetUser(int userId);
+        Task<ActionResult<IEnumerable<User>>> GetUsers();
+        Task<ActionResult<User>> GetUser(int userId);
     }
 }

@@ -1,9 +1,9 @@
-.container{
+.container {
     text-align: center;
     margin-top: 50px;
 }
 
-.iNputs{
+.iNputs {
     margin-top: 20px;
     margin-bottom: 20px;
     margin-left: auto;
@@ -13,14 +13,14 @@
     text-align: center;
 }
 
-span{
+span {
     color: orange;
 }
 
-.container3{
+.container3 {
     margin-top: 20px;
 }
 
-a{
+a {
     text-decoration: none;
 }

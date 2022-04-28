@@ -14,7 +14,7 @@ namespace API.Controllers
         }
         
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<RecipeDetailsDto>>> GetRecipeDetails()
+        public async Task<ActionResult<IEnumerable<RecipeDetailDto>>> GetRecipeDetails()
         {
             var recipeDetails = await _recipeDetailService.GetRecipeDetails();
             return Ok(recipeDetails);

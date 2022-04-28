@@ -20,12 +20,12 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers(){
+        public async Task<ActionResult<IEnumerable<User>>> GetUsers(){
             return await _UserService.GetUsers();
         }
 
         [HttpGet("{userId}")]
-        public async Task<ActionResult<AppUser>> GetUser(int userId)
+        public async Task<ActionResult<User>> GetUser(int userId)
         {
             if(userId < 1)
                 return BadRequest();

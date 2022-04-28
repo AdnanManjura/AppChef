@@ -1,5 +1,5 @@
 <app-home></app-home>
-<h3 *ngIf="category">Add new recipe into {{category.categoryName}} category!</h3>
+<h3 *ngIf="category">Add new recipe into {{category.name}} category!</h3>
 
 <form #addRecipeForm="ngForm" (ngSubmit)="addRecipe()" autocomplete="off">
     <div class="rData">
@@ -31,9 +31,9 @@
         </div>
     </div>
     <div class="data">
-        <input name="recipename" class="inputs inputs1" type="text" [(ngModel)]="model.recipename"
+        <input name="recipename" class="inputs inputs1" type="text" [(ngModel)]="model.name"
             placeholder="Please insert recipe name...">
-        <input name="recipePhoto" class="inputs inputs1" type="text" [(ngModel)]="model.recipePhoto"
+        <input name="recipePhoto" class="inputs inputs1" type="text" [(ngModel)]="model.photo"
             placeholder="Please insert photo URL...">
         <textarea rows="10" name="description" class="inputs" [(ngModel)]="model.description"
             placeholder="Please type some description about this recipe..."></textarea>

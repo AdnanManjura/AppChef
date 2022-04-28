@@ -3,8 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace API.Entities
 {
-    [Table("RecipeDetails")]
-    public class RecipeDetails
+    public class RecipeDetail
     {
         public float Quantity { get; set; }
 
@@ -17,6 +16,5 @@ namespace API.Entities
         public int IngredientId { get; set; }
 
         public Ingredient Ingredient { get; set; }
-
     }
 }

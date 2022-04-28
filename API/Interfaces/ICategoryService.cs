@@ -1,5 +1,4 @@
 using API.Entities;
-using API.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Interfaces

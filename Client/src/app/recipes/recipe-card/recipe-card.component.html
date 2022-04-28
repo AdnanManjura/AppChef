@@ -1,13 +1,13 @@
 <div class="container">
     <div class="container2" *ngIf="recipe">
-        <img src="{{recipe.recipePhoto}}" class="rPhoto">
+        <img src="{{recipe.photo}}" class="rPhoto">
         <button class="btn" *ngIf="category recipe"
             routerLink="/categories/{{category.id}}/{{recipe.id}}">How
             to prepare</button>
         <p><strong>Total cost:</strong></p>
     </div>
     <div class="container1">
-        <h4 *ngIf="recipe">{{recipe.recipeName}}</h4>
-        <h6 *ngIf="recipe">Best {{recipe.recipeName | lowercase}} in the world!</h6>
+        <h4 *ngIf="recipe">{{recipe.name}}</h4>
+        <h6 *ngIf="recipe">Best {{recipe.name | lowercase}} in the world!</h6>
     </div>
 </div>

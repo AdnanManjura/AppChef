@@ -16,6 +16,6 @@ namespace API.DTOs
 
         public Category Category { get; set; }
 
-        public List<RecipeDetails> RecipeDetailsList { get; set; }
+        public List<RecipeDetail> RecipeDetailList { get; set; }
     }
 }

@@ -15,6 +15,6 @@ namespace API.DTOs
 
         public float Price { get; set; }
 
-        public List<RecipeDetails> RecipeDetailsList { get; set; }
+        public List<RecipeDetail> RecipeDetailList { get; set; }
     }
 }

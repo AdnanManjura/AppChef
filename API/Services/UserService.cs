@@ -14,16 +14,14 @@ namespace API.Services
             _context = context;
         }
 
-        public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
+        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
             return await _context.Users.ToListAsync();
         }
         
-        public async Task<ActionResult<AppUser>> GetUser(int userId)
+        public async Task<ActionResult<User>> GetUser(int userId)
         {
             return await _context.Users.FindAsync(userId);
         }
-
-        
     }
 }

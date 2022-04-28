@@ -1,7 +1,7 @@
 <app-home></app-home>
 <div class="container">
     <div class="container2" *ngIf="category && recipe">
-        <h3>{{category.categoryName}} recipes > {{recipe.recipeName}}</h3>
+        <h3>{{category.name}} recipes > {{recipe.name}}</h3>
     </div>
     <div class="desc">
         <p>Description</p>
@@ -18,7 +18,7 @@
                 </tr>
                 <tr *ngFor="let recipeDetail of recipeDetails">
                     <td>
-                        <h4 *ngIf="recipeDetail">{{recipeDetail.ingredient.ingredientName}}</h4>
+                        <h4 *ngIf="recipeDetail">{{recipeDetail.ingredient.name}}</h4>
                     </td>
                     <td>
                         <h4 *ngIf="recipeDetail">{{recipeDetail.quantity}}</h4>
@@ -39,7 +39,7 @@
             </div>
         </div>
         <div class="card-img-wrapper" *ngIf="recipe">
-            <img src="{{recipe.recipePhoto}}" class="card-img-top">
+            <img src="{{recipe.photo}}" class="card-img-top">
         </div>
     </div>
 </div>

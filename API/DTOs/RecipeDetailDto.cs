@@ -3,7 +3,7 @@ using API.Enums;
 
 namespace API.DTOs
 {
-    public class RecipeDetailsDto
+    public class RecipeDetailDto
     {
         public float Quantity { get; set; }
 
