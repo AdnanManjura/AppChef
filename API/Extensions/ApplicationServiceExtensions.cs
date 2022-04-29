@@ -1,6 +1,8 @@
 using API.Data;
+using API.Helpers;
 using API.Interfaces;
 using API.Services;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,6 +19,7 @@ namespace API.Extensions
             services.AddScoped<IIngredientService, IngredientService>();
             services.AddScoped<IRecipeDetailService, RecipeDetailService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
             services.AddDbContext<DataContext>(options =>
             {
                 options.UseSqlite(config.GetConnectionString("DefaultConnection"));

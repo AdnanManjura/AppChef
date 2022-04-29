@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using API.DTOs;
 using System.Security.Cryptography;
 using API.Controllers;
+using AutoMapper;
 
 namespace API.Services
 {
@@ -18,8 +19,10 @@ namespace API.Services
     {
         private readonly SymmetricSecurityKey _key;
         private readonly DataContext _context;
-         public TokenService(IConfiguration config, DataContext context)
+        private readonly IMapper _mapper;
+        public TokenService(IConfiguration config, DataContext context, IMapper mapper)
         {
+            _mapper = mapper;
             _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["TokenKey"]));
             _context = context;
         }
@@ -49,21 +52,27 @@ namespace API.Services
 
         public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
         {
+            var user = _mapper.Map<User>(registerDto);
+
             using var hmac = new HMACSHA512();
 
-            var user = new User
-            {
-                UserName = registerDto.Username,
-                PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
-                PasswordSalt = hmac.Key
-            };
+                user.UserName = registerDto.Username;
+                user.FirstName = registerDto.FirstName;
+                user.LastName = registerDto.LastName;
+                user.EmailAddress = registerDto.EmailAddress;
+                user.PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password));
+                user.PasswordSalt = hmac.Key;
+           
 
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
-             return new UserDto
+            return new UserDto
             {
                 Username = user.UserName,
+                FirstName = registerDto.FirstName,
+                LastName = registerDto.LastName,
+                EmailAddress = registerDto.EmailAddress,
                 Token = CreateToken(user)
             };
         }
@@ -87,6 +96,9 @@ namespace API.Services
             return new UserDto
             {
                 Username = user.UserName,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                EmailAddress = user.EmailAddress,
                 Token = CreateToken(user)
             };
         }

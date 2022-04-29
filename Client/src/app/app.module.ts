@@ -4,7 +4,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { ToastrModule } from 'ngx-toastr';
@@ -18,6 +18,7 @@ import { RecipeCardComponent } from './recipes/recipe-card/recipe-card.component
 import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
 import { RecipeAddComponent } from './recipes/recipe-add/recipe-add.component';
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
+import { TextInputComponent } from './_forms/text-input/text-input.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.com
     RecipeCardComponent,
     RecipeListComponent,
     RecipeAddComponent,
-    RecipeDetailComponent
+    RecipeDetailComponent,
+    TextInputComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +41,7 @@ import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.com
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     BsDropdownModule.forRoot(),
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right'

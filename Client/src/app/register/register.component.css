@@ -3,18 +3,12 @@
     text-align: center;
 }
 
-span {
-    color: orange;
+.container3{
+    margin-top: 20px;
 }
 
-.iNputs {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 450px;
-    height: 40px;
-    text-align: center;
+span {
+    color: orange;
 }
 
 .btn {

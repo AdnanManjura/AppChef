@@ -1,16 +1,25 @@
 <div class="container">
-    <form *ngIf="(accountService.currentUser$ | async) === null" #registerForm="ngForm" (ngSubmit)="register()"
-        autocomplete="off">
+    <form [formGroup]='registerForm' (ngSubmit)="registerForm.valid && register()" autocomplete="off">
         <h1><strong>Sign<span>Up</span></strong></h1>
         <hr>
         <div class="container2">
-            <input type="text" class="iNputs form-control" name="username" [(ngModel)]="model.username"
-                placeholder="Please insert your username">
-            <input type="password" class="iNputs form-control" name="password" [(ngModel)]="model.password"
-                placeholder="Please insert your password">
+            <app-text-input [formControl]='registerForm.controls["firstName"]' [label]='"First name"'>
+            </app-text-input>
+            <app-text-input [formControl]='registerForm.controls["lastName"]' [label]='"Last name"'>
+            </app-text-input>
+            <app-text-input [formControl]='registerForm.controls["username"]' [label]='"Username"'>
+            </app-text-input>
+            <app-text-input [formControl]='registerForm.controls["emailAddress"]'
+                [label]='"Email address"'>
+            </app-text-input>
+            <app-text-input [formControl]='registerForm.controls["password"]' [label]='"Password"'
+                [type]='"password"'>
+            </app-text-input>
+            <app-text-input [formControl]='registerForm.controls["confirmPassword"]'
+                [label]='"Confirm password"' [type]='"password"'></app-text-input>
         </div>
         <div class="container3">
-            <button class="btn btn-success" type="submit">Register</button>
+            <button [disabled]='!registerForm.valid' class="btn btn-success" type="submit">Register</button>
             <button class="btn btn-outline-primary" (click)="cancel()" type="button" routerLink="/">Cancel</button>
         </div>
     </form>
