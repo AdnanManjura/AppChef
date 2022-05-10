@@ -38,6 +38,7 @@ export class RecipeAddComponent implements OnInit {
     console.log(this.model);
     this.recipeService.addRecipe(this.model).subscribe(response => {
       console.log(response);
+      window.location.reload();
     }, error => {
       console.log(error);
     })

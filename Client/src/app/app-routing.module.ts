@@ -22,8 +22,7 @@ const routes: Routes = [
       {path: 'categories', component: CategoryListComponent},
       {path: 'categories/:categoryId', component: CategoryDetailComponent},
       {path: 'categories/:categoryId/:recipeId', component: RecipeDetailComponent},
-      {path: 'recipes', component: RecipeListComponent},
-      {path: 'recipe/add/:categoryId', component: RecipeAddComponent},
+      {path: 'categories/:categoryId/add/recipe', component: RecipeAddComponent},
     ]
   },  
   {path: '**', component: LoginComponent, pathMatch: 'full'},

@@ -41,5 +41,5 @@
 </form>
 <button class="btn btn-lg" *ngIf="category" routerLink="/categories/{{category.id}}" type="submit" (click)="addRecipe()">Add new recipe!</button>
 <div class="bB">
-    <button class="btn" onclick="history.back()">Back</button>
+    <button class="btn" routerLink="../..">Back</button>
 </div>
